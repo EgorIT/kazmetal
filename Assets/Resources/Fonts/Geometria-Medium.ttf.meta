@@ -1,0 +1,36 @@
+fileFormatVersion: 2
+guid: fac4fc9e0a7163c4cadc521c14b49ff4
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Geometria
+  fontNames:
+  - Geometria
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d5f8c232701bbbf408b12dc5b3cebb79, type: 3}
+  - {fileID: 12800000, guid: 5e99ff339d91e41458be7fef00ae5a3e, type: 3}
+  - {fileID: 12800000, guid: 3e00e8831501e0e45828fabda5a06ab2, type: 3}
+  - {fileID: 12800000, guid: 1c828b052858eb1409db58dca7d00c4c, type: 3}
+  - {fileID: 12800000, guid: 6dac8dd5838469d4a8d8e053b6405a87, type: 3}
+  - {fileID: 12800000, guid: 5061c7560c4d4be4baadbcf24cad298c, type: 3}
+  - {fileID: 12800000, guid: 70a033d88f7ee65459eac70f0b628c1e, type: 3}
+  - {fileID: 12800000, guid: bc8984e9ba6a2744aabd239606e2dccd, type: 3}
+  - {fileID: 12800000, guid: 1827110ac4ba76f4d8dca7bea9b7af7d, type: 3}
+  - {fileID: 12800000, guid: 93b8f82c7dddb3746bd9ef9828535892, type: 3}
+  - {fileID: 12800000, guid: db7fe3ac81faccf469f63d9bb6c34af8, type: 3}
+  - {fileID: 12800000, guid: f1a21c4e84751094ab7096cb75c5bb4a, type: 3}
+  - {fileID: 12800000, guid: 8fd4326ebddba8349af1c695a39917ea, type: 3}
+  - {fileID: 12800000, guid: 30ebf99f9da04264cbf3253cfe09e6dd, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
