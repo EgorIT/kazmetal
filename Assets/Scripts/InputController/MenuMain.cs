@@ -195,22 +195,23 @@ public class MenuMain : MonoBehaviour, InputInteface
         yield return StartCoroutine(AnimationController.inst.changeMenuHideOut2(optionRus, optionEng, selectMainPos));
         selectorMain.gameObject.SetActive(false);
         selectorGeography.SetActive(true);
-        lastRotations = input.rotationX;
-        geographyController.gameObject.SetActive(true);
-        yield return StartCoroutine(AnimationController.inst.changeMenuShowIn2(screenGeography.optionRus, screenGeography.optionEng, 0));
         screenGeography.dinamicMap.SetActive(true);
-        for (int i = 0; i < screenGeography.dinamicMapItems.Count; i++)
-        {
-            screenGeography.dinamicMapItems[i].Off();
-        }
-        screenGeography.dinamicMapItems[0].On();
-        screenGeography.chooseTime = true;
-        input.rotationX = -60f;
+        
         for (int j = 0; j < screenGeography.videos.Count; j++)
         {
             screenPredpr.dinamicMapItems[j].gameObject.SetActive(true);
             screenGeography.videos[j].StartPrepareVideo();
         }
+        lastRotations = input.rotationX;
+        geographyController.gameObject.SetActive(true);
+        yield return StartCoroutine(AnimationController.inst.changeMenuShowIn2(screenGeography.optionRus, screenGeography.optionEng, 0));
+        
+        //screenGeography.dinamicMapItems[0].On();
+        input.rotationX = -60f;
+        screenGeography.selectMainPos = 0;
+        screenGeography.chooseTime = true;
+        
+        
         screenGeography.videos[0].PlayVideo();
         StartCoroutine(AnimationController.inst.scaleVideoPlus(screenGeography.videoList[0]));
         

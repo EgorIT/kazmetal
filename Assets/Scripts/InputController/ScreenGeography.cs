@@ -136,20 +136,27 @@ public class ScreenGeography : MonoBehaviour, InputInteface
         dinamicMapItems[newPos].On();
         videos[newPos].PlayVideo();
         yield return StartCoroutine(dinamicMapItems[selectMainPos].OffCoroutine());
-        videos[selectMainPos].StopVideo();
+        
         //dinamicMapItems[selectMainPos].gameObject.SetActive(false);
         //videoList[selectMainPos].SetActive(false);
         //if (selectMainPos < newPos || (selectMainPos == 3 && newPos == 0))
         //{
         StartCoroutine(AnimationController.inst.changeScreenBack(screens[selectMainPos], screens[newPos]));
-        StartCoroutine(AnimationController.inst.scaleVideoMinus(videoList[selectMainPos]));
-        StartCoroutine(AnimationController.inst.scaleVideoPlus(videoList[newPos]));
+        StartCoroutine(swapVidos());
         //}
         //else
         //{
         //    StartCoroutine(AnimationController.inst.changeScreen(screens[selectMainPos], screens[newPos]));
         //
         //}
+        
+    }
+
+    private IEnumerator swapVidos()
+    {
+        StartCoroutine(AnimationController.inst.scaleVideoPlus(videoList[newPos]));
+        yield return StartCoroutine(AnimationController.inst.scaleVideoMinus(videoList[selectMainPos]));
+        videos[selectMainPos].StopVideo();
         chooseTime = true;
         selectMainPos = newPos;
     }
@@ -168,6 +175,15 @@ public class ScreenGeography : MonoBehaviour, InputInteface
         selectorMainMenu.SetActive(true);
         yield return StartCoroutine(
             AnimationController.inst.changeMenuShowIn2(menuMain.optionRus, menuMain.optionEng, menuMain.selectMainPos));
+
+        for (int i = 0; i < videoList.Count; i++)
+        {
+            videoList[i].transform.localScale = Vector3.zero;
+        }
+        for (int i = 0; i < dinamicMapItems.Count; i++)
+        {
+            dinamicMapItems[i].OffFast();
+        }
         geographyScreen.gameObject.SetActive(false);
         menuMain.chooseTime = true;
         

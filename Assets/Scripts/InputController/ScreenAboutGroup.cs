@@ -123,7 +123,10 @@ public class ScreenAboutGroup : MonoBehaviour, InputInteface
 
     public void Click()
     {
-        StartCoroutine(selectMainPos == 1 ? startStrategy() : startOtvet());
+        if (chooseTime)
+        {
+            StartCoroutine(selectMainPos == 1 ? startStrategy() : startOtvet());
+        }
     }
 
     private IEnumerator startStrategy()
@@ -163,11 +166,11 @@ public class ScreenAboutGroup : MonoBehaviour, InputInteface
     {
         if (chooseTime)
         {
-            if (coro == null)
-            {
-                chooseTime = false;
+            chooseTime = false;
+            //if (coro == null)
+            //{
                 coro = StartCoroutine(pressBack());
-            }
+            //}
         }
         
     }
