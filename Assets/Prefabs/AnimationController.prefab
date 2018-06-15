@@ -53,6 +53,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   durationScaleFocusMenuItem: 0.2
   durationChangeMenuItem: 0.5
-  durationChangeScreen: 1
+  durationChangeScreen: 0.5
   durationScaleVideo: 1
+  durationScaleVideoFast: 1
+  durationScrollStrategy: 15
+  durationScrollOtvet: 15
   a: {fileID: 0}

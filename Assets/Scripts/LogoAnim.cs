@@ -15,23 +15,27 @@ public class LogoAnim : MonoBehaviour {
 
     private AudioSource audioSource;
 
-    public Button buttonStart, buttonStop;
+   
     private Coroutine coroutine;
     private bool isPlay = false;
     
     void Start () {
-        Application.runInBackground = true;
-        buttonStart.onClick.AddListener(PlayVideo);
-        buttonStop.onClick.AddListener(StopVideo);
+        
+        
+        
+    }
+
+    public void StartPrepareVideo()
+    {
         StartCoroutine(playVideo());
     }
 
-    private void PlayVideo()
+    public void PlayVideo()
     {
         isPlay = true;
     }
 
-    private void StopVideo()
+    public void StopVideo()
     {
         isPlay = false;
     }

@@ -8,7 +8,7 @@ public class ScreenAboutGroup : MonoBehaviour, InputInteface
     public InputCustomController input;
     public GameObject mainMenuScreen, selectorMainMenu, aboutGroupScreen,  mainMenuController;
 	public GameObject menu;
-    //public List<Text> menuItems = new List<Text>();
+    public List<Text> menuItems = new List<Text>();
     //public Text rus, eng;
     public MenuMain menuMain;
     private Coroutine coro;
@@ -25,14 +25,15 @@ public class ScreenAboutGroup : MonoBehaviour, InputInteface
     public GameObject strategyController, otvetController;
     public ScreenStrategy strategy;
     public ScreenOtvet otvet;
+    public float lastRotations;
 
 
 
 
     // Use this for initialization
     void Start () {
-        //menuItems.Add(rus);
-        //menuItems.Add(eng);
+        menuItems.AddRange(optionRus);
+        menuItems.AddRange(optionEng);
         gameObject.SetActive(false);
     }
 	
@@ -106,8 +107,9 @@ public class ScreenAboutGroup : MonoBehaviour, InputInteface
         mainMenuScreen.gameObject.SetActive(true);
         mainMenuController.gameObject.SetActive(true);
         StartCoroutine(AnimationController.inst.changeScreenBack(aboutGroupScreen, mainMenuScreen));
-        //yield return StartCoroutine(AnimationController.inst.changeMenuHideOut(menuItems));
+        yield return StartCoroutine(AnimationController.inst.changeMenuHideOut2(optionRus, optionEng, 0));
         menu.SetActive(false);
+        input.rotationX = menuMain.lastRotations;
         selectorMainMenu.SetActive(true);
         yield return StartCoroutine(
             AnimationController.inst.changeMenuShowIn22(menuMain.optionRus, menuMain.optionEng, menuMain.selectMainPos));
@@ -128,10 +130,12 @@ public class ScreenAboutGroup : MonoBehaviour, InputInteface
         StartCoroutine(AnimationController.inst.changeScreenBack(aboutGroupScreen, strategyScreen));
         yield return StartCoroutine(AnimationController.inst.changeMenuHideOut2(optionRus, optionEng, selectMainPos));
         menu.gameObject.SetActive(false);
+        lastRotations = input.rotationX;
         input.rotationX = -60f;
         strategyController.gameObject.SetActive(true);
         aboutGroupScreen.SetActive(false);
         strategy.chooseTime = true;
+        strategy.startScroll();
         gameObject.SetActive(false);
     }
 
@@ -141,19 +145,28 @@ public class ScreenAboutGroup : MonoBehaviour, InputInteface
         StartCoroutine(AnimationController.inst.changeScreenBack(aboutGroupScreen, otvetScreen));
         yield return StartCoroutine(AnimationController.inst.changeMenuHideOut2(optionRus, optionEng, selectMainPos));
         menu.gameObject.SetActive(false);
+        lastRotations = input.rotationX;
         input.rotationX = -60f;
         otvetController.gameObject.SetActive(true);
         aboutGroupScreen.gameObject.SetActive(false);
         aboutGroupScreen.SetActive(false);
         otvet.chooseTime = true;
+        otvet.startScroll();
+        otvet.logoAnim.StartPrepareVideo();
+        otvet.logoAnim.PlayVideo();
         gameObject.SetActive(false);
     }
 
     public void Back()
     {
-        if (coro == null)
+        if (chooseTime)
         {
-            coro = StartCoroutine(pressBack());
+            if (coro == null)
+            {
+                chooseTime = false;
+                coro = StartCoroutine(pressBack());
+            }
         }
+        
     }
 }

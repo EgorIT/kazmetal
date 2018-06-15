@@ -17,6 +17,7 @@ public class MenuLang : MonoBehaviour, InputInteface
     public bool chooseTime = true;
     public MenuMain menuMain;
     public List<Text> texts = new List<Text>();
+    public float lastRotations;
     
 
 
@@ -97,6 +98,7 @@ public class MenuLang : MonoBehaviour, InputInteface
         selectorLang.gameObject.SetActive(false);
         selectorMain.gameObject.SetActive(true);
         // menuMainController.gameObject.SetActive(true);
+        lastRotations = input.rotationX;
         input.rotationX = -60f;
         menuMain.GetFocus(input.rotationX + 59.0f);
         yield return StartCoroutine(

@@ -67,7 +67,7 @@ public class ScreenFuture : MonoBehaviour, InputInteface
        //while (isSlide)
        //{
        //    yield return new WaitForSeconds(slideTime);
-            nextSlide = currentSlide - 1 == -1 ? images.Count : currentSlide - 1;
+            nextSlide = currentSlide - 1 == -1 ? images.Count-1 : currentSlide - 1;
             yield return StartCoroutine(
                 AnimationController.inst.changeScreenBack(images[currentSlide], images[nextSlide]));
             currentSlide = nextSlide;
@@ -84,6 +84,7 @@ public class ScreenFuture : MonoBehaviour, InputInteface
 	{
 		if (chooseTime)
 		{
+		    chooseTime = false;
 			StartCoroutine(pressBack());
 		}
 	}
@@ -95,7 +96,7 @@ public class ScreenFuture : MonoBehaviour, InputInteface
 		StartCoroutine(AnimationController.inst.changeScreenBack(futureScreen, mainMenuScreen));
 		//yield return StartCoroutine(AnimationController.inst.changeMenuHideOut2(optionRus, optionEng, selectMainPos));
 		//menu.SetActive(false);
-		
+	    input.rotationX = menuMain.lastRotations;
 		selectorMainMenu.SetActive(true);
 		yield return StartCoroutine(
 			AnimationController.inst.changeMenuShowIn22(menuMain.optionRus, menuMain.optionEng, menuMain.selectMainPos));

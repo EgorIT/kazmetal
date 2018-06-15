@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class MenuMain : MonoBehaviour, InputInteface
 {
@@ -10,7 +11,7 @@ public class MenuMain : MonoBehaviour, InputInteface
     public List<Text> optionEng;
     public List<GameObject> option;
     public int selectMainPos = -1;
-    public GameObject selectorLang, selectorMain,  selectorGeography;
+    public GameObject selectorLang, selectorMain,  selectorGeography, selectorAboutGroup, selectorPredpr;
     public GameObject selectorLangController, selectorMainController;// selectorBack;
     public GameObject mainMemuScreen;
     public GameObject aboutGroup, actogay2, geography, predpr, future;
@@ -30,6 +31,8 @@ public class MenuMain : MonoBehaviour, InputInteface
     public ScreenPredpr screenPredpr;
     public ScreenFuture screenFuture;
     private List<GameObject> list = new List<GameObject>();
+    public float lastRotations;
+
 
 
 
@@ -145,7 +148,7 @@ public class MenuMain : MonoBehaviour, InputInteface
         yield return StartCoroutine(AnimationController.inst.changeMenuHideOut2(optionRus, optionEng, selectMainPos));
         selectorLang.gameObject.SetActive(true);
         selectorMain.gameObject.SetActive(false);
-        
+        input.rotationX = menuLang.lastRotations;
         yield return StartCoroutine(
             AnimationController.inst.changeMenuShowIn(menuLang.texts, menuLang.select ? 0 : 1));
         menuLang.chooseTime = true;
@@ -158,6 +161,7 @@ public class MenuMain : MonoBehaviour, InputInteface
         StartCoroutine(AnimationController.inst.changeScreenBack(mainMemuScreen, actogay2));
         yield return StartCoroutine(AnimationController.inst.changeMenuHideOut2(optionRus, optionEng, selectMainPos));
         selectorMain.gameObject.SetActive(false);
+        lastRotations = input.rotationX;
         //selectorBack.SetActive(true);
         //yield return StartCoroutine(AnimationController.inst.changeMenuShowIn(screenAktogay2.menuItems));
         aktogay2Controller.gameObject.SetActive(true);
@@ -171,9 +175,13 @@ public class MenuMain : MonoBehaviour, InputInteface
         StartCoroutine(AnimationController.inst.changeScreenBack(mainMemuScreen, aboutGroup));
         yield return StartCoroutine(AnimationController.inst.changeMenuHideOut2(optionRus, optionEng, selectMainPos));
         selectorMain.gameObject.SetActive(false);
-        //selectorBack.SetActive(true);
-        //yield return StartCoroutine(AnimationController.inst.changeMenuShowIn(screenAboutGroup.menuItems));
+        selectorAboutGroup.SetActive(true);
+        lastRotations = input.rotationX;
+        input.rotationX = -60f;
+        
+        yield return StartCoroutine(AnimationController.inst.changeMenuShowIn2(screenAboutGroup.optionRus, optionEng, 1));
         aboutGroupController.gameObject.SetActive(true);
+        screenAboutGroup.chooseTime = true;
         mainMemuScreen.gameObject.SetActive(false);
 
     }
@@ -185,17 +193,25 @@ public class MenuMain : MonoBehaviour, InputInteface
         yield return StartCoroutine(AnimationController.inst.changeMenuHideOut2(optionRus, optionEng, selectMainPos));
         selectorMain.gameObject.SetActive(false);
         selectorGeography.SetActive(true);
+        lastRotations = input.rotationX;
         input.rotationX = -60f;
         geographyController.gameObject.SetActive(true);
-        
         yield return StartCoroutine(AnimationController.inst.changeMenuShowIn2(screenGeography.optionRus, screenGeography.optionEng, 0));
-        //screenGeography.dinamicMap.SetActive(true);
-        //for (int i = 0; i < screenGeography.dinamicMapItems.Count; i++)
-        //{
-        //    screenGeography.dinamicMapItems[i].Off();
-        //}
-        //screenGeography.dinamicMapItems[0].On();
+        screenGeography.dinamicMap.SetActive(true);
+        for (int i = 0; i < screenGeography.dinamicMapItems.Count; i++)
+        {
+            screenGeography.dinamicMapItems[i].Off();
+        }
+        screenGeography.dinamicMapItems[0].On();
         screenGeography.chooseTime = true;
+        for (int j = 0; j < screenGeography.videos.Count; j++)
+        {
+            screenPredpr.dinamicMapItems[j].gameObject.SetActive(true);
+            screenGeography.videos[j].StartPrepareVideo();
+        }
+        screenGeography.videos[0].PlayVideo();
+        StartCoroutine(AnimationController.inst.scaleVideoPlus(screenGeography.videoList[0]));
+        
         mainMemuScreen.gameObject.SetActive(false);
 
     }
@@ -206,13 +222,15 @@ public class MenuMain : MonoBehaviour, InputInteface
         StartCoroutine(AnimationController.inst.changeScreenBack(mainMemuScreen, predpr));
         yield return StartCoroutine(AnimationController.inst.changeMenuHideOut2(optionRus, optionEng, selectMainPos));
         selectorMain.gameObject.SetActive(false);
-        selectorGeography.SetActive(true);
+        selectorPredpr.SetActive(true);
+        lastRotations = input.rotationX;
         input.rotationX = -60f;
         predprController.gameObject.SetActive(true);
         yield return StartCoroutine(AnimationController.inst.changeMenuShowIn2(screenPredpr.optionRus, screenPredpr.optionEng, 0));
         screenPredpr.dinamicMap.SetActive(true);
         for (int i = 0; i < screenPredpr.dinamicMapItems.Count; i++)
         {
+            screenPredpr.dinamicMapItems[i].gameObject.SetActive(true);
             screenPredpr.dinamicMapItems[i].Off();
         }
         screenPredpr.dinamicMapItems[0].On();
@@ -228,6 +246,7 @@ public class MenuMain : MonoBehaviour, InputInteface
         yield return StartCoroutine(AnimationController.inst.changeMenuHideOut2(optionRus, optionEng, selectMainPos));
         selectorMain.gameObject.SetActive(false);
         //selectorGeography.SetActive(true);
+        lastRotations = input.rotationX;
         input.rotationX = -60f;
         futureController.gameObject.SetActive(true);
         //yield return StartCoroutine(AnimationController.inst.changeMenuShowIn2(screenPredpr.optionRus, screenPredpr.optionEng, 0));
@@ -253,16 +272,18 @@ public class MenuMain : MonoBehaviour, InputInteface
                     StartCoroutine(selectGeography());
                     break;
                 case 1:
-                    //chooseTime = false;
-                    //StartCoroutine(selectPredpr());
+                    chooseTime = false;
+                    StartCoroutine(selectAboutGroup());
+                    
                     break;
                 case 2:
                     chooseTime = false;
-                    StartCoroutine(selectFuture());
+                    StartCoroutine(selectPredpr());
+                    
                     break;
                 case 3:
                     chooseTime = false;
-                    StartCoroutine(selectAboutGroup());
+                    StartCoroutine(selectFuture());
                     break;
                 case 4:
                     chooseTime = false;

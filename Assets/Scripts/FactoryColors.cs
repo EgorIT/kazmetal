@@ -148,7 +148,7 @@ public class FactoryColors : MonoBehaviour
 		StartCoroutine(OffCoroutine());
 	}
 
-	private IEnumerator OffCoroutine()
+	public IEnumerator OffCoroutine()
 	{
 		float inAnimationTime = time;
 

@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScreenAktogay2 : MonoBehaviour, InputInteface {
+public class ScreenAktogay2 : MonoBehaviour, InputInteface
+{
 
+
+    public InputCustomController input;
     public GameObject mainMenuScreen, selectorMainMenu, aktogay2Screen, mainMenuController;
 	public GameObject menu;
     //public List<Text> menuItems = new List<Text>();
@@ -41,6 +44,7 @@ public class ScreenAktogay2 : MonoBehaviour, InputInteface {
         StartCoroutine(AnimationController.inst.changeScreenBack(aktogay2Screen, mainMenuScreen));
         //yield return StartCoroutine(AnimationController.inst.changeMenuHideOut(menuItems));
         menu.SetActive(false);
+        input.rotationX = menuMain.lastRotations;
         selectorMainMenu.SetActive(true);
         yield return StartCoroutine(
             AnimationController.inst.changeMenuShowIn2(menuMain.optionRus, menuMain.optionEng, menuMain.selectMainPos));

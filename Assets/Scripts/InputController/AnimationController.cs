@@ -12,6 +12,8 @@ public class AnimationController : MonoBehaviour
     public float durationChangeScreen;
     public float durationScaleVideo;
     public float durationScaleVideoFast;
+    public float durationScrollStrategy;
+    public float durationScrollOtvet = 15f;
     private Color32 selectedColor = new Color32(255, 249, 203, 255);
     private Color32 unselectedColor = new Color32(26, 110, 157, 255);
 
@@ -307,16 +309,58 @@ public class AnimationController : MonoBehaviour
         }
     }
 
-    public GameObject a;
-   
-    [ContextMenu("plus")]
-    public void plus()
+    public IEnumerator scrollContentOtvet(Vector3 start, Vector3 end, GameObject content)
     {
-        StartCoroutine(scaleVideoPlus(a));
+
+        float time = 0f;
+        float delta = end.y - start.y;
+        while (true)
+        {
+            if (time < durationScrollOtvet)
+            {
+                time += Time.deltaTime;
+                content.transform.localPosition = new Vector3(0, start.y + delta * time / durationScrollOtvet, 0);
+            }
+            else
+            {
+                time = 0f;
+            }
+
+            yield return null;
+        }
     }
-    [ContextMenu("minus")]
-    public void minus()
+
+    public IEnumerator scrollContentStrategy(Vector3 start, Vector3 end, GameObject content)
     {
-        StartCoroutine(scaleVideoMinus(a));
+
+        float time = 0f;
+        float delta = end.y - start.y;
+        while (true)
+        {
+            if (time < durationScrollStrategy)
+            {
+                time += Time.deltaTime;
+                content.transform.localPosition = new Vector3(0, start.y + delta * time / durationScrollStrategy, 0);
+            }
+            else
+            {
+                time = 0f;
+            }
+
+            yield return null;
+        }
     }
+
+    //public GameObject a;
+    //
+    //[ContextMenu("plus")]
+    //public void plus()
+    //{
+    //    StartCoroutine(scaleVideoPlus(a));
+    //}
+    //[ContextMenu("minus")]
+    //public void minus()
+    //{
+    //    StartCoroutine(scaleVideoMinus(a));
+    //}
 }

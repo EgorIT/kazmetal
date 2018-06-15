@@ -9,6 +9,7 @@ public class ScreenPredpr : MonoBehaviour, InputInteface {
     public List<Text> optionRus;
     public List<Text> optionEng;
     public List<GameObject> screens;
+    public List<GameObject> option;
     public GameObject dinamicMap;
     public List<FactoryColors> dinamicMapItems;
 
@@ -28,6 +29,8 @@ public class ScreenPredpr : MonoBehaviour, InputInteface {
     public List<Text> menuItems = new List<Text>();
     public MenuMain menuMain;
     private Coroutine coro;
+    private List<GameObject> list = new List<GameObject>();
+
 
     // Use this for initialization
     void Start()
@@ -65,6 +68,7 @@ public class ScreenPredpr : MonoBehaviour, InputInteface {
         {
             if (coro == null)
             {
+                chooseTime = false;
                 coro = StartCoroutine(pressBack());
             }
         }
@@ -102,11 +106,12 @@ public class ScreenPredpr : MonoBehaviour, InputInteface {
             unselectListEng.RemoveAt(newPos);
             unselectListRus.RemoveAt(newPos);
             chooseTime = false;
-            coroRus = StartCoroutine(
-                AnimationController.inst.SelectItem(optionRus[newPos].gameObject, unselectListRus));
+            //coroRus = StartCoroutine(
+            //    AnimationController.inst.SelectItem(optionRus[newPos].gameObject, unselectListRus));
             coroEng = StartCoroutine(
-                AnimationController.inst.SelectItem(optionEng[newPos].gameObject, unselectListEng));
+                AnimationController.inst.SelectItem(option[newPos].gameObject, unselectListEng));
             dinamicMapItems[selectMainPos].Off();
+            dinamicMapItems[newPos].gameObject.SetActive(true);
             dinamicMapItems[newPos].On();
             //if (selectMainPos < newPos || (selectMainPos == 3 && newPos == 0))
             //{
@@ -129,6 +134,8 @@ public class ScreenPredpr : MonoBehaviour, InputInteface {
         StartCoroutine(AnimationController.inst.changeScreenBack(predprScreen, mainMenuScreen));
         yield return StartCoroutine(AnimationController.inst.changeMenuHideOut2(optionRus, optionEng, selectMainPos));
         menu.SetActive(false);
+        chooseTime = false;
+        input.rotationX = menuMain.lastRotations;
         dinamicMap.SetActive(false);
         selectorMainMenu.SetActive(true);
         yield return StartCoroutine(
