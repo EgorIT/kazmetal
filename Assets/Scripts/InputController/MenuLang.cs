@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MenuLang : MonoBehaviour, InputInteface
 {
     public GameObject selectorLang, selectorMain;
-    public Text textRus, textEng;
+    public TextMeshProUGUI textRus, textEng;
     public GameObject textRusC, textEngC;
     public InputCustomController input;
     public ChangeLang changeLang;
@@ -16,7 +17,7 @@ public class MenuLang : MonoBehaviour, InputInteface
     private List<GameObject> unselectList = new List<GameObject>();
     public bool chooseTime = true;
     public MenuMain menuMain;
-    public List<Text> texts = new List<Text>();
+    public List<TextMeshProUGUI> texts = new List<TextMeshProUGUI>();
     public float lastRotations;
     
 
@@ -79,15 +80,15 @@ public class MenuLang : MonoBehaviour, InputInteface
 
     private void FocusEng()
     {
-        textEng.color = input.selectedColor;
-        textRus.color = input.unselectedColor;
+        textEng.fontMaterial = MaterialsController.inst.glow;
+        textRus.fontMaterial = MaterialsController.inst.simple;
         changeLang.SelectEng();
     }
 
     private void FocusRus()
     {
-        textEng.color = input.unselectedColor;
-        textRus.color = input.selectedColor;
+        textEng.fontMaterial = MaterialsController.inst.simple;
+        textRus.fontMaterial = MaterialsController.inst.glow;
         changeLang.SelectRus();
     }
 

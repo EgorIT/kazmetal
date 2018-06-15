@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions.Comparers;
 using UnityEngine.UI;
@@ -14,7 +15,8 @@ public class AnimationController : MonoBehaviour
     public float durationScaleVideoFast;
     public float durationScrollStrategy;
     public float durationScrollOtvet = 15f;
-    private Color32 selectedColor = new Color32(255, 249, 203, 255);
+    //private Color32 selectedColor = new Color32(255, 249, 203, 255);
+    private Color32 selectedColor = new Color32(26, 110, 157, 255);
     private Color32 unselectedColor = new Color32(26, 110, 157, 255);
 
 
@@ -72,7 +74,7 @@ public class AnimationController : MonoBehaviour
         }
     }
 
-    public IEnumerator changeMenuHideOut2(List<Text> menuOutRus, List<Text> menuOutEng, int selectedItem)
+    public IEnumerator changeMenuHideOut2(List<TextMeshProUGUI> menuOutRus, List<TextMeshProUGUI> menuOutEng, int selectedItem)
     {
         float time = durationChangeMenuItem;
         while (time > 0)
@@ -90,7 +92,7 @@ public class AnimationController : MonoBehaviour
         }
     }
 
-    public IEnumerator changeMenuHideOut(List<Text> menuOut)
+    public IEnumerator changeMenuHideOut(List<TextMeshProUGUI> menuOut)
     {
         float time = durationChangeMenuItem;
         while (time > 0)
@@ -106,7 +108,7 @@ public class AnimationController : MonoBehaviour
         }
     }
 
-    public IEnumerator changeMenuHideOut(List<Text> menuOut, int selectedItem)
+    public IEnumerator changeMenuHideOut(List<TextMeshProUGUI> menuOut, int selectedItem)
     {
         float time = durationChangeMenuItem;
         while (time > 0)
@@ -123,7 +125,7 @@ public class AnimationController : MonoBehaviour
         }
     }
     
-    public IEnumerator changeMenuShowIn2(List<Text> menuRus, List<Text> menuEng, int selectedItem)
+    public IEnumerator changeMenuShowIn2(List<TextMeshProUGUI> menuRus, List<TextMeshProUGUI> menuEng, int selectedItem)
     {
         float time = 0;
         while (time < durationChangeMenuItem)
@@ -148,7 +150,7 @@ public class AnimationController : MonoBehaviour
         }
     }
 
-    public IEnumerator changeMenuShowIn22(List<Text> menuRus, List<Text> menuEng, int selectedItem)
+    public IEnumerator changeMenuShowIn22(List<TextMeshProUGUI> menuRus, List<TextMeshProUGUI> menuEng, int selectedItem)
     {
         float time = 0;
         while (time < durationScaleVideoFast)
@@ -173,7 +175,7 @@ public class AnimationController : MonoBehaviour
         }
     }
 
-    public IEnumerator changeMenuShowIn(List<Text> menu)
+    public IEnumerator changeMenuShowIn(List<TextMeshProUGUI> menu)
     {
         float time = 0;
         while (time < durationChangeMenuItem)
@@ -190,7 +192,7 @@ public class AnimationController : MonoBehaviour
         }
     }
 
-    public IEnumerator changeMenuShowIn(List<Text> menu, int selectedItem)
+    public IEnumerator changeMenuShowIn(List<TextMeshProUGUI> menu, int selectedItem)
     {
         float time = 0;
         while (time < durationChangeMenuItem)

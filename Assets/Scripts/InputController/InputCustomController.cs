@@ -10,8 +10,9 @@ public class InputCustomController : MonoBehaviour {
     public float minimumX = -60F;
     public float maximumX = 60F;
     
-    public Color32 selectedColor = new Color32(255, 249, 203, 255);
-    public Color32 unselectedColor = new Color32(26, 110, 157, 255);
+    //public Color32 selectedColor = new Color32(255, 249, 203, 255);
+    //public Color32 unselectedColor = new Color32(26, 110, 157, 255);
+    
     public List<MonoBehaviour> listClick; 
     public List<MonoBehaviour> listBack; 
     

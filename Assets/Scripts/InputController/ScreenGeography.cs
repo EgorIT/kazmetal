@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScreenGeography : MonoBehaviour, InputInteface
 {
     public InputCustomController input;
-    public List<Text> optionRus;
-    public List<Text> optionEng;
+    public List<TextMeshProUGUI> optionRus;
+    public List<TextMeshProUGUI> optionEng;
     public List<GameObject> option;
     public List<GameObject> screens;
 
@@ -27,7 +28,7 @@ public class ScreenGeography : MonoBehaviour, InputInteface
 
     public GameObject mainMenuScreen, selectorMainMenu, geographyScreen, mainMenuController;
     public GameObject menu;
-    public List<Text> menuItems = new List<Text>();
+    public List<TextMeshProUGUI> menuItems = new List<TextMeshProUGUI>();
     public MenuMain menuMain;
     private Coroutine coro, coroChan;
     private List<GameObject> list = new List<GameObject>();
@@ -94,12 +95,13 @@ public class ScreenGeography : MonoBehaviour, InputInteface
     {
         for (int i = 0; i < optionRus.Count; i++)
         {
-            optionRus[i].color = input.unselectedColor;
-            optionEng[i].color = input.unselectedColor;
+           
+            optionRus[i].fontMaterial=  MaterialsController.inst.simple;
+            optionEng[i].fontMaterial = MaterialsController.inst.simple;
         }
 
-        optionRus[newPos].color = input.selectedColor;
-        optionEng[newPos].color = input.selectedColor;
+        optionRus[newPos].fontMaterial = MaterialsController.inst.glow;
+        optionEng[newPos].fontMaterial = MaterialsController.inst.glow;
         if (coroRus != null)
         {
             StopCoroutine(coroRus);

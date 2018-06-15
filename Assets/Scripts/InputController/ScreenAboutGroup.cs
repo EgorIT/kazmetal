@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,15 +9,15 @@ public class ScreenAboutGroup : MonoBehaviour, InputInteface
     public InputCustomController input;
     public GameObject mainMenuScreen, selectorMainMenu, aboutGroupScreen,  mainMenuController;
 	public GameObject menu;
-    public List<Text> menuItems = new List<Text>();
+    public List<TextMeshProUGUI> menuItems = new List<TextMeshProUGUI>();
     //public Text rus, eng;
     public MenuMain menuMain;
     private Coroutine coro;
     public bool chooseTime = false;
     public int selectMainPos = 0;
     private int newPos;
-    public List<Text> optionRus;
-    public List<Text> optionEng;
+    public List<TextMeshProUGUI> optionRus;
+    public List<TextMeshProUGUI> optionEng;
     private Coroutine coroRus = null;
     private Coroutine coroEng = null;
     public List<GameObject> option;
@@ -68,10 +69,11 @@ public class ScreenAboutGroup : MonoBehaviour, InputInteface
         {
             if (newPos % 2 == 0)
             {
-                optionRus[0].color = input.selectedColor;
-                optionEng[0].color = input.selectedColor;
-                optionRus[1].color = input.unselectedColor;
-                optionEng[1].color = input.unselectedColor;
+                
+                optionRus[0].fontMaterial =  MaterialsController.inst.glow;
+                optionEng[0].fontMaterial = MaterialsController.inst.glow;
+                optionRus[1].fontMaterial = MaterialsController.inst.simple;
+                optionEng[1].fontMaterial = MaterialsController.inst.simple;
 
                 if (coroEng != null)
                 {
@@ -83,10 +85,10 @@ public class ScreenAboutGroup : MonoBehaviour, InputInteface
             }
             else
             {
-                optionRus[1].color = input.selectedColor;
-                optionEng[1].color = input.selectedColor;
-                optionRus[0].color = input.unselectedColor;
-                optionEng[0].color = input.unselectedColor;
+                optionRus[1].fontMaterial =  MaterialsController.inst.glow;
+                optionEng[1].fontMaterial = MaterialsController.inst.glow;
+                optionRus[0].fontMaterial = MaterialsController.inst.simple;
+                optionEng[0].fontMaterial = MaterialsController.inst.simple;
 
                 if (coroEng != null)
                 {
@@ -121,7 +123,7 @@ public class ScreenAboutGroup : MonoBehaviour, InputInteface
 
     public void Click()
     {
-        StartCoroutine(selectMainPos == 0 ? startStrategy() : startOtvet());
+        StartCoroutine(selectMainPos == 1 ? startStrategy() : startOtvet());
     }
 
     private IEnumerator startStrategy()

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -7,8 +8,8 @@ using UnityEngine.Video;
 public class MenuMain : MonoBehaviour, InputInteface
 {
     public InputCustomController input;
-    public List<Text> optionRus;
-    public List<Text> optionEng;
+    public List<TextMeshProUGUI> optionRus;
+    public List<TextMeshProUGUI> optionEng;
     public List<GameObject> option;
     public int selectMainPos = -1;
     public GameObject selectorLang, selectorMain,  selectorGeography, selectorAboutGroup, selectorPredpr;
@@ -104,12 +105,13 @@ public class MenuMain : MonoBehaviour, InputInteface
         {
             for (int i = 0; i < optionRus.Count; i++)
             {
-                optionRus[i].color = input.unselectedColor;
-                optionEng[i].color = input.unselectedColor;
+                
+                optionRus[i].fontMaterial = MaterialsController.inst.simple;
+                optionEng[i].fontMaterial = MaterialsController.inst.simple;
             }
 
-            optionRus[newPos].color = input.selectedColor;
-            optionEng[newPos].color = input.selectedColor;
+            optionRus[newPos].fontMaterial = MaterialsController.inst.glow;
+            optionEng[newPos].fontMaterial = MaterialsController.inst.glow;
             if (coroRus != null)
             {
                 StopCoroutine(coroRus);
@@ -194,7 +196,6 @@ public class MenuMain : MonoBehaviour, InputInteface
         selectorMain.gameObject.SetActive(false);
         selectorGeography.SetActive(true);
         lastRotations = input.rotationX;
-        input.rotationX = -60f;
         geographyController.gameObject.SetActive(true);
         yield return StartCoroutine(AnimationController.inst.changeMenuShowIn2(screenGeography.optionRus, screenGeography.optionEng, 0));
         screenGeography.dinamicMap.SetActive(true);
@@ -204,6 +205,7 @@ public class MenuMain : MonoBehaviour, InputInteface
         }
         screenGeography.dinamicMapItems[0].On();
         screenGeography.chooseTime = true;
+        input.rotationX = -60f;
         for (int j = 0; j < screenGeography.videos.Count; j++)
         {
             screenPredpr.dinamicMapItems[j].gameObject.SetActive(true);
@@ -271,17 +273,17 @@ public class MenuMain : MonoBehaviour, InputInteface
                     chooseTime = false;
                     StartCoroutine(selectGeography());
                     break;
-                case 1:
+                case 3:
                     chooseTime = false;
                     StartCoroutine(selectAboutGroup());
                     
                     break;
-                case 2:
+                case 1:
                     chooseTime = false;
                     StartCoroutine(selectPredpr());
                     
                     break;
-                case 3:
+                case 2:
                     chooseTime = false;
                     StartCoroutine(selectFuture());
                     break;
