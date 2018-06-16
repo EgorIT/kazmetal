@@ -32,7 +32,7 @@ public class InputCustomController : MonoBehaviour {
 	    
 	    if (Input.GetKeyDown("w"))
 	    {
-	        Rotate();
+	        Rotate(10);
 	    }
 	    
 	    if (Input.GetKeyDown("e"))
@@ -66,9 +66,9 @@ public class InputCustomController : MonoBehaviour {
     
     //public void Rotate(float angle)
     [ContextMenu("rotate")]
-    public void Rotate()
+    public void Rotate(float x)
     {
-        rotationX += 10f;
+        rotationX += x;
         rotationX = ClampAngleX(rotationX, minimumX, maximumX);
     }
     

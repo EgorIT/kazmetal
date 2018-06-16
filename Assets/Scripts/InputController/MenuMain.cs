@@ -177,7 +177,7 @@ public class MenuMain : MonoBehaviour, InputInteface
         aktogay2Controller.gameObject.SetActive(true);
         mainMemuScreen.gameObject.SetActive(false);
         input.rotationX = -60f;
-        screenAktogay2.model.transform.localRotation = Quaternion.Euler(0, 24 , 0);
+        screenAktogay2.model.transform.rotation = Quaternion.Euler(0, 24 , 0);
         screenAktogay2.chooseTime = true;
 
     }

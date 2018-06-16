@@ -9,7 +9,7 @@ public class PowerMateDemo : MonoBehaviour {
 	void Start () {
         btn.onPress += onPressPrint;
         btn.onLongPress += onLongPressPrint;
-        //btn.onRotate += onRotatePrint;
+        btn.onRotate += onRotatePrint;
     }
 	
 	// Update is called once per frame
@@ -26,9 +26,9 @@ public class PowerMateDemo : MonoBehaviour {
     {
         inputCustomController.Back();
     }
-    //[ContextMenu("rotate")]
-    //private void onRotatePrint(float speed)
-    //{
-    //    inputCustomController.Rotate(speed);
-    //}
+    [ContextMenu("rotate")]
+    private void onRotatePrint(float speed)
+    {
+        inputCustomController.Rotate(speed);
+    }
 }

@@ -100,7 +100,7 @@ public class ScreenAktogay2 : MonoBehaviour, InputInteface
         selectorMainMenu.SetActive(true);
         yield return StartCoroutine(
             AnimationController.inst.changeMenuShowIn2(menuMain.optionRus, menuMain.optionEng, menuMain.selectMainPos));
-        model.transform.localRotation = Quaternion.Euler(new Vector3(0, 24 , 0));
+        model.transform.rotation = Quaternion.Euler(new Vector3(0, 24 , 0));
         aktogay2Screen.gameObject.SetActive(false);
         menuMain.chooseTime = true;
         gameObject.SetActive(false);
