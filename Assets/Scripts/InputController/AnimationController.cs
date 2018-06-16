@@ -16,11 +16,11 @@ public class AnimationController : MonoBehaviour
     public float durationScrollStrategy;
     public float durationScrollOtvet = 15f;
 
-    
 
     //private Color32 selectedColor = new Color32(255, 249, 203, 255);
     private Color32 selectedColor = new Color32(255, 155, 0, 255);
     private Color32 unselectedColor = new Color32(26, 110, 157, 255);
+    private Color32 arrowColor = new Color32(30, 127, 177, 255);
 
 
     // Use this for initialization
@@ -41,7 +41,6 @@ public class AnimationController : MonoBehaviour
     {
     }
 
-    
 
     public IEnumerator SelectItem(GameObject gObjSelect, List<GameObject> gObjUnselect)
     {
@@ -98,20 +97,38 @@ public class AnimationController : MonoBehaviour
         }
     }
 
-    public IEnumerator changeMenuHideOut(List<TextMeshProUGUI> menuOut)
+    public IEnumerator arrowHideOut(Image menuOut)
     {
         float time = durationChangeMenuItem;
         while (time > 0)
         {
-            for (int i = 0; i < menuOut.Count; i++)
-            {
-                selectedColor.a = (byte) (255 * time / durationChangeMenuItem);
-                menuOut[i].color = selectedColor;
-            }
+            arrowColor.a = (byte) (255 * time / durationChangeMenuItem);
+            menuOut.color = arrowColor;
+
 
             time -= Time.deltaTime;
             yield return null;
         }
+
+        arrowColor.a = 0;
+        menuOut.color = arrowColor;
+    }
+
+    public IEnumerator arrowShowIn(Image menuOut)
+    {
+        float time = 0;
+        while (time < durationChangeMenuItem)
+        {
+            arrowColor.a = (byte) (255 * time / durationChangeMenuItem);
+            menuOut.color = arrowColor;
+
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        arrowColor.a = 255;
+        menuOut.color = arrowColor;
     }
 
     public IEnumerator changeMenuHideOut(List<TextMeshProUGUI> menuOut, int selectedItem)

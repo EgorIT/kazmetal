@@ -33,6 +33,7 @@ public class MenuMain : MonoBehaviour, InputInteface
     public ScreenFuture screenFuture;
     private List<GameObject> list = new List<GameObject>();
     public float lastRotations;
+    public Image arrow;
 
 
 
@@ -168,9 +169,11 @@ public class MenuMain : MonoBehaviour, InputInteface
         yield return StartCoroutine(AnimationController.inst.changeMenuHideOut2(optionRus, optionEng, selectMainPos));
         selectorMain.gameObject.SetActive(false);
         lastRotations = input.rotationX;
-        
+
         //selectorBack.SetActive(true);
         //yield return StartCoroutine(AnimationController.inst.changeMenuShowIn(screenAktogay2.menuItems));
+        yield return StartCoroutine(AnimationController.inst.arrowShowIn(arrow));
+
         aktogay2Controller.gameObject.SetActive(true);
         mainMemuScreen.gameObject.SetActive(false);
         input.rotationX = -60f;
@@ -260,7 +263,7 @@ public class MenuMain : MonoBehaviour, InputInteface
         lastRotations = input.rotationX;
         input.rotationX = -60f;
         futureController.gameObject.SetActive(true);
-        //yield return StartCoroutine(AnimationController.inst.changeMenuShowIn2(screenPredpr.optionRus, screenPredpr.optionEng, 0));
+        yield return StartCoroutine(AnimationController.inst.arrowShowIn(arrow));
         //screenPredpr.dinamicMap.SetActive(true);
         //for (int i = 0; i < screenPredpr.dinamicMapItems.Count; i++)
         //{
@@ -268,6 +271,7 @@ public class MenuMain : MonoBehaviour, InputInteface
         //}
         //screenPredpr.dinamicMapItems[0].On();
         screenFuture.chooseTime = true;
+        //arrow.SetActive(true);
         mainMemuScreen.gameObject.SetActive(false);
 
     }

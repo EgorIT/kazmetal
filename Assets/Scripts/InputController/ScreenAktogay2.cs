@@ -93,6 +93,7 @@ public class ScreenAktogay2 : MonoBehaviour, InputInteface
         mainMenuScreen.gameObject.SetActive(true);
         mainMenuController.gameObject.SetActive(true);
         StartCoroutine(AnimationController.inst.changeScreenBack(aktogay2Screen, mainMenuScreen));
+        yield return StartCoroutine(AnimationController.inst.arrowHideOut(menuMain.arrow));
         //yield return StartCoroutine(AnimationController.inst.changeMenuHideOut(menuItems));
         menu.SetActive(false);
         input.rotationX = menuMain.lastRotations;

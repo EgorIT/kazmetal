@@ -108,7 +108,7 @@ public class ScreenFuture : MonoBehaviour, InputInteface
 		mainMenuScreen.gameObject.SetActive(true);
 		mainMenuController.gameObject.SetActive(true);
 		StartCoroutine(AnimationController.inst.changeScreenBack(futureScreen, mainMenuScreen));
-		//yield return StartCoroutine(AnimationController.inst.changeMenuHideOut2(optionRus, optionEng, selectMainPos));
+        yield return StartCoroutine(AnimationController.inst.arrowHideOut(menuMain.arrow));
 		//menu.SetActive(false);
 	    input.rotationX = menuMain.lastRotations;
 		selectorMainMenu.SetActive(true);
