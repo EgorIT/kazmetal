@@ -15,8 +15,11 @@ public class AnimationController : MonoBehaviour
     public float durationScaleVideoFast;
     public float durationScrollStrategy;
     public float durationScrollOtvet = 15f;
+
+    
+
     //private Color32 selectedColor = new Color32(255, 249, 203, 255);
-    private Color32 selectedColor = new Color32(26, 110, 157, 255);
+    private Color32 selectedColor = new Color32(255, 155, 0, 255);
     private Color32 unselectedColor = new Color32(26, 110, 157, 255);
 
 
@@ -37,6 +40,8 @@ public class AnimationController : MonoBehaviour
     void Update()
     {
     }
+
+    
 
     public IEnumerator SelectItem(GameObject gObjSelect, List<GameObject> gObjUnselect)
     {
@@ -74,7 +79,8 @@ public class AnimationController : MonoBehaviour
         }
     }
 
-    public IEnumerator changeMenuHideOut2(List<TextMeshProUGUI> menuOutRus, List<TextMeshProUGUI> menuOutEng, int selectedItem)
+    public IEnumerator changeMenuHideOut2(List<TextMeshProUGUI> menuOutRus, List<TextMeshProUGUI> menuOutEng,
+        int selectedItem)
     {
         float time = durationChangeMenuItem;
         while (time > 0)
@@ -97,12 +103,12 @@ public class AnimationController : MonoBehaviour
         float time = durationChangeMenuItem;
         while (time > 0)
         {
-
             for (int i = 0; i < menuOut.Count; i++)
             {
-                selectedColor.a = (byte)(255 * time / durationChangeMenuItem);
+                selectedColor.a = (byte) (255 * time / durationChangeMenuItem);
                 menuOut[i].color = selectedColor;
             }
+
             time -= Time.deltaTime;
             yield return null;
         }
@@ -113,24 +119,23 @@ public class AnimationController : MonoBehaviour
         float time = durationChangeMenuItem;
         while (time > 0)
         {
-            
             for (int i = 0; i < menuOut.Count; i++)
             {
                 selectedColor.a = (byte) (255 * time / durationChangeMenuItem);
                 unselectedColor.a = (byte) (255 * time / durationChangeMenuItem);
                 menuOut[i].color = i == selectedItem ? selectedColor : unselectedColor;
             }
+
             time -= Time.deltaTime;
             yield return null;
         }
     }
-    
+
     public IEnumerator changeMenuShowIn2(List<TextMeshProUGUI> menuRus, List<TextMeshProUGUI> menuEng, int selectedItem)
     {
         float time = 0;
         while (time < durationChangeMenuItem)
         {
-            
             for (int i = 0; i < menuRus.Count; i++)
             {
                 selectedColor.a = (byte) (255 * time / durationChangeMenuItem);
@@ -138,9 +143,11 @@ public class AnimationController : MonoBehaviour
                 menuRus[i].color = i == selectedItem ? selectedColor : unselectedColor;
                 menuEng[i].color = i == selectedItem ? selectedColor : unselectedColor;
             }
+
             time += Time.deltaTime;
             yield return null;
         }
+
         for (int i = 0; i < menuRus.Count; i++)
         {
             selectedColor.a = 255;
@@ -150,12 +157,12 @@ public class AnimationController : MonoBehaviour
         }
     }
 
-    public IEnumerator changeMenuShowIn22(List<TextMeshProUGUI> menuRus, List<TextMeshProUGUI> menuEng, int selectedItem)
+    public IEnumerator changeMenuShowIn22(List<TextMeshProUGUI> menuRus, List<TextMeshProUGUI> menuEng,
+        int selectedItem)
     {
         float time = 0;
         while (time < durationScaleVideoFast)
         {
-            
             for (int i = 0; i < menuRus.Count; i++)
             {
                 selectedColor.a = (byte) (255 * time / durationScaleVideoFast);
@@ -163,9 +170,11 @@ public class AnimationController : MonoBehaviour
                 menuRus[i].color = i == selectedItem ? selectedColor : unselectedColor;
                 menuEng[i].color = i == selectedItem ? selectedColor : unselectedColor;
             }
+
             time += Time.deltaTime;
             yield return null;
         }
+
         for (int i = 0; i < menuRus.Count; i++)
         {
             selectedColor.a = 255;
@@ -180,13 +189,13 @@ public class AnimationController : MonoBehaviour
         float time = 0;
         while (time < durationChangeMenuItem)
         {
-
             for (int i = 0; i < menu.Count; i++)
             {
-                selectedColor.a = (byte)(255 * time / durationChangeMenuItem);
-                
+                selectedColor.a = (byte) (255 * time / durationChangeMenuItem);
+
                 menu[i].color = selectedColor;
             }
+
             time += Time.deltaTime;
             yield return null;
         }
@@ -197,13 +206,13 @@ public class AnimationController : MonoBehaviour
         float time = 0;
         while (time < durationChangeMenuItem)
         {
-            
             for (int i = 0; i < menu.Count; i++)
             {
                 selectedColor.a = (byte) (255 * time / durationChangeMenuItem);
                 unselectedColor.a = (byte) (255 * time / durationChangeMenuItem);
                 menu[i].color = i == selectedItem ? selectedColor : unselectedColor;
             }
+
             time += Time.deltaTime;
             yield return null;
         }
@@ -231,8 +240,10 @@ public class AnimationController : MonoBehaviour
                 currentScreen.transform.localPosition = new Vector3(-1080, 0, 0);
                 nextScreen.transform.localPosition = Vector3.zero;
             }
+
             yield return null;
         }
+
         currentScreen.SetActive(false);
     }
 
@@ -250,7 +261,7 @@ public class AnimationController : MonoBehaviour
                 //y = sin2(sin2(x * pi / 2) * pi / 2)
                 float x = Mathf.Sin(Mathf.PI * time / (2 * durationChangeScreen)) *
                           Mathf.Sin(Mathf.PI * time / (2 * durationChangeScreen));
-                currentPos.x = 1080* Mathf.Sin(Mathf.PI * x / 2) * Mathf.Sin(Mathf.PI * x / 2);
+                currentPos.x = 1080 * Mathf.Sin(Mathf.PI * x / 2) * Mathf.Sin(Mathf.PI * x / 2);
                 nextPos.x = -1080 + currentPos.x;
                 currentScreen.transform.localPosition = currentPos;
                 nextScreen.transform.localPosition = nextPos;
@@ -261,9 +272,10 @@ public class AnimationController : MonoBehaviour
                 nextScreen.transform.localPosition = Vector3.zero;
             }
 
-            
+
             yield return null;
         }
+
         currentScreen.transform.localPosition = new Vector3(-1080, 0, 0);
         nextScreen.transform.localPosition = Vector3.zero;
         currentScreen.SetActive(false);
@@ -289,7 +301,7 @@ public class AnimationController : MonoBehaviour
             yield return null;
         }
     }
-    
+
     public IEnumerator scaleVideoMinus(GameObject obj)
     {
         float time = 0f;
@@ -299,7 +311,7 @@ public class AnimationController : MonoBehaviour
             time += Time.deltaTime;
             if (time < durationScaleVideo)
             {
-                scale = 1- time * time / durationScaleVideo / durationScaleVideo;
+                scale = 1 - time * time / durationScaleVideo / durationScaleVideo;
                 obj.transform.localScale = new Vector3(scale, scale, scale);
             }
             else
@@ -313,7 +325,6 @@ public class AnimationController : MonoBehaviour
 
     public IEnumerator scrollContentOtvet(Vector3 start, Vector3 end, GameObject content)
     {
-
         float time = 0f;
         float delta = end.y - start.y;
         while (true)
@@ -334,7 +345,6 @@ public class AnimationController : MonoBehaviour
 
     public IEnumerator scrollContentStrategy(Vector3 start, Vector3 end, GameObject content)
     {
-
         float time = 0f;
         float delta = end.y - start.y;
         while (true)

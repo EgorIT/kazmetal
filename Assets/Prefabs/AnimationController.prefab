@@ -58,4 +58,4 @@ MonoBehaviour:
   durationScaleVideoFast: 1
   durationScrollStrategy: 15
   durationScrollOtvet: 15
-  a: {fileID: 0}
+  durationRotate: 1

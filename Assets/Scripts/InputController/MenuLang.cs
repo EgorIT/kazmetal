@@ -82,6 +82,8 @@ public class MenuLang : MonoBehaviour, InputInteface
     {
         textEng.fontMaterial = MaterialsController.inst.glow;
         textRus.fontMaterial = MaterialsController.inst.simple;
+        textEng.color = input.selectedColor;
+        textRus.color = input.unselectedColor;
         changeLang.SelectEng();
     }
 
@@ -89,6 +91,8 @@ public class MenuLang : MonoBehaviour, InputInteface
     {
         textEng.fontMaterial = MaterialsController.inst.simple;
         textRus.fontMaterial = MaterialsController.inst.glow;
+        textEng.color = input.unselectedColor;
+        textRus.color = input.selectedColor;
         changeLang.SelectRus();
     }
 

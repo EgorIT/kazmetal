@@ -108,10 +108,14 @@ public class MenuMain : MonoBehaviour, InputInteface
                 
                 optionRus[i].fontMaterial = MaterialsController.inst.simple;
                 optionEng[i].fontMaterial = MaterialsController.inst.simple;
+                optionRus[i].color = input.unselectedColor;
+                optionEng[i].color = input.unselectedColor;
             }
 
             optionRus[newPos].fontMaterial = MaterialsController.inst.glow;
             optionEng[newPos].fontMaterial = MaterialsController.inst.glow;
+            optionRus[newPos].color = input.selectedColor;
+            optionEng[newPos].color = input.selectedColor;
             if (coroRus != null)
             {
                 StopCoroutine(coroRus);
@@ -164,11 +168,15 @@ public class MenuMain : MonoBehaviour, InputInteface
         yield return StartCoroutine(AnimationController.inst.changeMenuHideOut2(optionRus, optionEng, selectMainPos));
         selectorMain.gameObject.SetActive(false);
         lastRotations = input.rotationX;
+        
         //selectorBack.SetActive(true);
         //yield return StartCoroutine(AnimationController.inst.changeMenuShowIn(screenAktogay2.menuItems));
         aktogay2Controller.gameObject.SetActive(true);
         mainMemuScreen.gameObject.SetActive(false);
-        
+        input.rotationX = -60f;
+        screenAktogay2.model.transform.localRotation = Quaternion.Euler(0, 24 , 0);
+        screenAktogay2.chooseTime = true;
+
     }
 
     private IEnumerator selectAboutGroup()

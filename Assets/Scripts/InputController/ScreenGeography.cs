@@ -98,10 +98,14 @@ public class ScreenGeography : MonoBehaviour, InputInteface
            
             optionRus[i].fontMaterial=  MaterialsController.inst.simple;
             optionEng[i].fontMaterial = MaterialsController.inst.simple;
+            optionRus[i].color = input.unselectedColor;
+            optionEng[i].color = input.unselectedColor;
         }
 
         optionRus[newPos].fontMaterial = MaterialsController.inst.glow;
         optionEng[newPos].fontMaterial = MaterialsController.inst.glow;
+        optionRus[newPos].color = input.selectedColor;
+        optionEng[newPos].color = input.selectedColor;
         if (coroRus != null)
         {
             StopCoroutine(coroRus);

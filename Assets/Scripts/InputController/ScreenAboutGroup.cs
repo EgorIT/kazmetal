@@ -74,7 +74,10 @@ public class ScreenAboutGroup : MonoBehaviour, InputInteface
                 optionEng[0].fontMaterial = MaterialsController.inst.glow;
                 optionRus[1].fontMaterial = MaterialsController.inst.simple;
                 optionEng[1].fontMaterial = MaterialsController.inst.simple;
-
+                optionRus[0].color = input.selectedColor;
+                optionEng[0].color = input.selectedColor;
+                optionRus[1].color = input.unselectedColor;
+                optionEng[1].color = input.unselectedColor;
                 if (coroEng != null)
                 {
                     StopCoroutine(coroEng);
@@ -89,6 +92,10 @@ public class ScreenAboutGroup : MonoBehaviour, InputInteface
                 optionEng[1].fontMaterial = MaterialsController.inst.glow;
                 optionRus[0].fontMaterial = MaterialsController.inst.simple;
                 optionEng[0].fontMaterial = MaterialsController.inst.simple;
+                optionRus[1].color = input.selectedColor;
+                optionEng[1].color = input.selectedColor;
+                optionRus[0].color = input.unselectedColor;
+                optionEng[0].color = input.unselectedColor;
 
                 if (coroEng != null)
                 {

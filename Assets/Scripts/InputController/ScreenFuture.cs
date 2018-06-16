@@ -37,26 +37,26 @@ public class ScreenFuture : MonoBehaviour, InputInteface
 		newPos = (int) (value / 30);
 		if (selectMainPos != newPos)
 		{
-            Debug.Log("start compare " +selectMainPos+ " " + newPos );
+            
 			chooseTime = false;
 			if ((newPos == selectMainPos+1))
 			{
-                Debug.Log("forward " + selectMainPos + "->" + newPos);
+                
 				StartCoroutine(SlideImage());
 			}
 		    if ((newPos==0&&selectMainPos==images.Count-1))
 			{
-                Debug.Log("forward " + selectMainPos + "->" + newPos);
+                
 				StartCoroutine(SlideImage());
 			}
 			if ((newPos == selectMainPos-1))
 			{
-			    Debug.Log("back" + selectMainPos + "->" + newPos);
+			    
                 StartCoroutine(SlideImageBack());
 			}
 		    if ((newPos==images.Count-1&&selectMainPos==0))
 			{
-			    Debug.Log("back" + selectMainPos + "->" + newPos);
+			    
                 StartCoroutine(SlideImageBack());
 			}
 			selectMainPos = newPos;
