@@ -36,6 +36,7 @@ public class MenuMain : MonoBehaviour, InputInteface
     public Image arrow;
     public LogoAnim logoAnimRus, logoAnimEng;
     public GameObject vidosContainer;
+    public GameObject langIndicator;
 
 
 
@@ -197,10 +198,27 @@ public class MenuMain : MonoBehaviour, InputInteface
         yield return StartCoroutine(AnimationController.inst.changeMenuShowIn2(screenAboutGroup.optionRus, optionEng, 0));
         aboutGroupController.gameObject.SetActive(true);
         vidosContainer.SetActive(true);
-        logoAnimRus.StartPrepareVideo();
-        logoAnimEng.StartPrepareVideo();
-        logoAnimRus.PlayVideo();
-        logoAnimEng.PlayVideo();
+        if (langIndicator.activeInHierarchy)
+        {
+            logoAnimEng.StartPrepareVideo();
+            
+        }
+        else
+        {
+            logoAnimRus.StartPrepareVideo();
+        }
+
+        if (langIndicator.activeInHierarchy)
+        {
+            logoAnimEng.PlayVideo();
+        }
+        else
+        {
+            logoAnimRus.PlayVideo();
+        }
+
+        //langIndicator.activeInHierarchy ? logoAnimEng.PlayVideo() : logoAnimRus.PlayVideo();
+
         screenAboutGroup.chooseTime = true;
         mainMemuScreen.gameObject.SetActive(false);
 
@@ -209,32 +227,51 @@ public class MenuMain : MonoBehaviour, InputInteface
     private IEnumerator selectGeography()
     {
         chooseTime = false;
+        geographyController.gameObject.SetActive(true);
+        geography.SetActive(true);
         StartCoroutine(AnimationController.inst.changeScreenBack(mainMemuScreen, geography));
+        for (int i = 0; i < 3; i++)
+        {
+            yield return StartCoroutine(startvidos0(i));
+        }
         yield return StartCoroutine(AnimationController.inst.changeMenuHideOut2(optionRus, optionEng, selectMainPos));
         selectorMain.gameObject.SetActive(false);
         selectorGeography.SetActive(true);
         screenGeography.dinamicMap.SetActive(true);
         
-        for (int j = 0; j < screenGeography.videos.Count; j++)
+        for (int j = 0; j < screenGeography.dinamicMapItems.Count; j++)
         {
             screenPredpr.dinamicMapItems[j].gameObject.SetActive(true);
-            screenGeography.videos[j].StartPrepareVideo();
+            //if (j != 3)
+            //{
+            //    screenGeography.videos[j].StartPrepareVideo();
+            //}
         }
         lastRotations = input.rotationX;
-        geographyController.gameObject.SetActive(true);
+        
         yield return StartCoroutine(AnimationController.inst.changeMenuShowIn2(screenGeography.optionRus, screenGeography.optionEng, 0));
         
         //screenGeography.dinamicMapItems[0].On();
         input.rotationX = -60f;
         screenGeography.selectMainPos = 0;
         screenGeography.chooseTime = true;
+
         
-        
-        screenGeography.videos[0].PlayVideo();
         StartCoroutine(AnimationController.inst.scaleVideoPlus(screenGeography.videoList[0]));
         
         mainMemuScreen.gameObject.SetActive(false);
 
+    }
+
+    private IEnumerator startvidos0(int i)
+    {
+        if (i == 0)
+        {
+            screenGeography.videos[i].PlayVideo();
+        }
+        screenGeography.videos[i].StartPrepareVideo();
+        
+        yield return null;
     }
 
     private IEnumerator selectPredpr()

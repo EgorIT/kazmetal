@@ -72,7 +72,7 @@ public class PowerMateButton : MonoBehaviour {
 
     private void udpWorker()
     {
-        Debug.Log("start udpWorker");
+        //Debug.Log("start udpWorker");
         while (work)
         {
             if (listener.Available > 0)
@@ -86,7 +86,7 @@ public class PowerMateButton : MonoBehaviour {
                 Thread.Sleep(1);
             }
         }
-        Debug.Log("close udpWorker");
+        //Debug.Log("close udpWorker");
     }
 
     private void parsePowermateAction(int action)

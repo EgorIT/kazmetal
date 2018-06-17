@@ -34,7 +34,9 @@ public class ScreenGeography : MonoBehaviour, InputInteface
     private List<GameObject> list = new List<GameObject>();
     public List<GameObject> videoList;
     public List<LogoAnim> videos;
+    public List<GameObject> images;
     private float currentRotate;
+    
     
 
     // Use this for initialization
@@ -51,6 +53,10 @@ public class ScreenGeography : MonoBehaviour, InputInteface
             menuItems.Add(optionEng[i]);
         }
         //geographyScreen.SetActive(false);
+        //for (int j = 0; j < videos.Count; j++)
+        //{
+        //    StartCoroutine(videos[j].StartPrepareVideo());
+        //}
         gameObject.SetActive(false);
     }
 
@@ -141,7 +147,7 @@ public class ScreenGeography : MonoBehaviour, InputInteface
         //dinamicMapItems[newPos].gameObject.SetActive(true);
         //videoList[newPos].SetActive(true);
         dinamicMapItems[newPos].On();
-        videos[newPos].PlayVideo();
+        //videos[newPos].PlayVideo();
         yield return StartCoroutine(dinamicMapItems[selectMainPos].OffCoroutine());
         
         //dinamicMapItems[selectMainPos].gameObject.SetActive(false);
@@ -162,12 +168,42 @@ public class ScreenGeography : MonoBehaviour, InputInteface
     private IEnumerator swapVidos()
     {
         StartCoroutine(AnimationController.inst.scaleVideoPlus(videoList[newPos]));
+        StartCoroutine(topVidosochanger(selectMainPos, newPos));
         yield return StartCoroutine(AnimationController.inst.scaleVideoMinus(videoList[selectMainPos]));
-        videos[selectMainPos].StopVideo();
+        
+        //videos[selectMainPos].StopVideo();
         input.rotationX = currentRotate;
         chooseTime = true;
         selectMainPos = newPos;
     }
+
+    private IEnumerator topVidosochanger(int current, int next)
+    {
+        if (current == 3)
+        {
+
+        }
+        else
+        {
+            videos[current].StopVideo();
+            //videos[current].gameObject.SetActive(false);
+            
+        }
+
+        if (next == 3)
+        {
+
+        }
+        else
+        {
+            //videos[current].gameObject.SetActive(true);
+            videos[next].PlayVideo();
+        }
+
+        yield return null;
+    }
+
+    
 
     private IEnumerator pressBack()
     {
@@ -178,7 +214,7 @@ public class ScreenGeography : MonoBehaviour, InputInteface
         menu.SetActive(false);
         chooseTime = false;
         input.rotationX = menuMain.lastRotations;
-        videos[selectMainPos].StopVideo();
+        //videos[selectMainPos].StopVideo();
         //dinamicMap.SetActive(false);
         selectorMainMenu.SetActive(true);
         yield return StartCoroutine(
