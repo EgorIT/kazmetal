@@ -124,7 +124,14 @@ public class FactoryColors : MonoBehaviour
 		StartCoroutine(OnCoroutine());
 	}
 
-	private IEnumerator OnCoroutine()
+    public void OnFast()
+    {
+        factory.color = new Color(factory.color.r, factory.color.g, factory.color.b, factoryTransparencyMax);
+        select.color = new Color(factory.color.r, factory.color.g, factory.color.b, selectTransparencyMax);
+        factoryName.color = new Color(factoryName.color.r, factoryName.color.g, factoryName.color.b, factoryNameTransparencyMax);
+    }
+
+    private IEnumerator OnCoroutine()
 	{
 		float inAnimationTime = time;
 

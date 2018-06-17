@@ -241,7 +241,7 @@ public class MenuMain : MonoBehaviour, InputInteface
         
         for (int j = 0; j < screenGeography.dinamicMapItems.Count; j++)
         {
-            screenPredpr.dinamicMapItems[j].gameObject.SetActive(true);
+            screenGeography.dinamicMapItems[j].gameObject.SetActive(true);
             //if (j != 3)
             //{
             //    screenGeography.videos[j].StartPrepareVideo();

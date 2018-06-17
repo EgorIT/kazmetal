@@ -36,8 +36,15 @@ public class ScreenGeography : MonoBehaviour, InputInteface
     public List<LogoAnim> videos;
     public List<GameObject> images;
     private float currentRotate;
+
+    private int currentSlide = 0;
+    private int nextSlide;
+    private float durationChangeScreen = 0.5f;
+    private Coroutine sliderCoro;
+
     
-    
+
+
 
     // Use this for initialization
     void Start()
@@ -100,12 +107,13 @@ public class ScreenGeography : MonoBehaviour, InputInteface
         }
     }
 
-    private IEnumerator changeGeog()
+    public void startscreen()
     {
+        newPos = 0;
         for (int i = 0; i < optionRus.Count; i++)
         {
-           
-            optionRus[i].fontMaterial=  MaterialsController.inst.simple;
+
+            optionRus[i].fontMaterial = MaterialsController.inst.simple;
             optionEng[i].fontMaterial = MaterialsController.inst.simple;
             optionRus[i].color = input.unselectedColor;
             optionEng[i].color = input.unselectedColor;
@@ -115,6 +123,53 @@ public class ScreenGeography : MonoBehaviour, InputInteface
         optionEng[newPos].fontMaterial = MaterialsController.inst.glow;
         optionRus[newPos].color = input.selectedColor;
         optionEng[newPos].color = input.selectedColor;
+
+        if (coroRus != null)
+        {
+            StopCoroutine(coroRus);
+        }
+
+        if (coroEng != null)
+        {
+            StopCoroutine(coroEng);
+        }
+
+        unselectListEng.Clear();
+        unselectListRus.Clear();
+
+        unselectListEng.AddRange(unselectListEngFull);
+        unselectListRus.AddRange(unselectListRusFull);
+
+        unselectListEng.RemoveAt(newPos);
+        unselectListRus.RemoveAt(newPos);
+
+        list.Clear();
+        list.AddRange(option);
+        list.RemoveAt(newPos);
+        coroEng = StartCoroutine(
+            AnimationController.inst.SelectItem(option[newPos], list));
+
+        dinamicMapItems[newPos].OnFast();
+
+        newPos = -1;
+    }
+
+    private IEnumerator changeGeog()
+    {
+        for (int i = 0; i < optionRus.Count; i++)
+        {
+
+            optionRus[i].fontMaterial = MaterialsController.inst.simple;
+            optionEng[i].fontMaterial = MaterialsController.inst.simple;
+            optionRus[i].color = input.unselectedColor;
+            optionEng[i].color = input.unselectedColor;
+        }
+
+        optionRus[newPos].fontMaterial = MaterialsController.inst.glow;
+        optionEng[newPos].fontMaterial = MaterialsController.inst.glow;
+        optionRus[newPos].color = input.selectedColor;
+        optionEng[newPos].color = input.selectedColor;
+
         if (coroRus != null)
         {
             StopCoroutine(coroRus);
@@ -179,31 +234,90 @@ public class ScreenGeography : MonoBehaviour, InputInteface
 
     private IEnumerator topVidosochanger(int current, int next)
     {
+        
         if (current == 3)
         {
-
+            videos[next].PlayVideo();
+            yield return StartCoroutine(changeScreenBack(images[currentSlide].gameObject, videos[next].gameObject));
+            StopCoroutine(sliderCoro);
+            images[currentSlide].transform.position = new Vector3(-987,0,0);
+            //images[currentSlide].gameObject.SetActive(false);
+            currentSlide = 0;
         }
-        else
+        else if (next == 3)
         {
+            //images[0].gameObject.SetActive(true);
+            sliderCoro = StartCoroutine(slider());
+            yield return StartCoroutine(changeScreenBack(videos[current].gameObject, images[0].gameObject));
             videos[current].StopVideo();
-            //videos[current].gameObject.SetActive(false);
+            videos[current].transform.position = new Vector3(-987, 0, 0);
             
         }
-
-        if (next == 3)
-        {
-
-        }
         else
         {
-            //videos[current].gameObject.SetActive(true);
             videos[next].PlayVideo();
+            yield return StartCoroutine(changeScreenBack(videos[current].gameObject, videos[next].gameObject));
+            videos[current].StopVideo();
         }
 
         yield return null;
     }
 
-    
+    private IEnumerator slider()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5.0f);
+            yield return StartCoroutine(SlideImageBack());
+        }
+    }
+
+    public IEnumerator SlideImageBack()
+    {
+        //while (isSlide)
+        //{
+        //    yield return new WaitForSeconds(slideTime);
+        nextSlide = currentSlide + 1 == images.Count ? 0 : currentSlide + 1;
+        yield return StartCoroutine(changeScreenBack(images[currentSlide], images[nextSlide]));
+        currentSlide = nextSlide;
+       
+        //}
+    }
+
+    public IEnumerator changeScreenBack(GameObject currentScreen, GameObject nextScreen)
+    {
+        Vector3 currentPos = Vector3.zero;
+        Vector3 nextPos = new Vector3(-987, 0, 0);
+        nextScreen.transform.position = nextPos;
+        nextScreen.SetActive(true);
+        float time = 0;
+        while (time < durationChangeScreen)
+        {
+            time += Time.deltaTime;
+            if (time < durationChangeScreen)
+            {
+                //y = sin2(sin2(x * pi / 2) * pi / 2)
+                float x = Mathf.Sin(Mathf.PI * time / (2 * durationChangeScreen)) *
+                          Mathf.Sin(Mathf.PI * time / (2 * durationChangeScreen));
+                currentPos.x = 987 * Mathf.Sin(Mathf.PI * x / 2) * Mathf.Sin(Mathf.PI * x / 2);
+                nextPos.x = -987 + currentPos.x;
+                currentScreen.transform.localPosition = currentPos;
+                nextScreen.transform.localPosition = nextPos;
+            }
+            else
+            {
+                currentScreen.transform.localPosition = new Vector3(987, 0, 0);
+                nextScreen.transform.localPosition = Vector3.zero;
+            }
+
+
+            yield return null;
+        }
+
+        currentScreen.transform.localPosition = new Vector3(-987, 0, 0);
+        nextScreen.transform.localPosition = Vector3.zero;
+        
+    }
 
     private IEnumerator pressBack()
     {
@@ -228,10 +342,25 @@ public class ScreenGeography : MonoBehaviour, InputInteface
         {
             dinamicMapItems[i].OffFast();
         }
+
+        for (int i = 0; i < videos.Count; i++)
+        {
+            videos[i].StopVideo();
+            videos[i].transform.localPosition = new Vector3(-987, 0, 0);
+        }
+
+        videos[0].transform.localPosition= new Vector3(0, 0, 0);
+        for (int i = 0; i < images.Count; i++)
+        {
+            images[i].transform.localPosition = new Vector3(-987, 0, 0);
+        }
+
         geographyScreen.gameObject.SetActive(false);
         menuMain.chooseTime = true;
-        
+        startscreen();
         gameObject.SetActive(false);
         coro = null;
     }
+
+
 }

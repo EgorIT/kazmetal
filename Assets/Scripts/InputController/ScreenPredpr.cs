@@ -32,6 +32,8 @@ public class ScreenPredpr : MonoBehaviour, InputInteface {
     private Coroutine coro;
     private List<GameObject> list = new List<GameObject>();
 
+    public List<Image> slidesBozshak, slidesAktogay, slidesBozim, slidesEast;
+
 
     // Use this for initialization
     void Start()

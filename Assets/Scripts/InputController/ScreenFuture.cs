@@ -110,6 +110,7 @@ public class ScreenFuture : MonoBehaviour, InputInteface
 		StartCoroutine(AnimationController.inst.changeScreenBack(futureScreen, mainMenuScreen));
         yield return StartCoroutine(AnimationController.inst.arrowHideOut(menuMain.arrow));
 		//menu.SetActive(false);
+	    currentSlide = 0;
 	    input.rotationX = menuMain.lastRotations;
 		selectorMainMenu.SetActive(true);
 		yield return StartCoroutine(
