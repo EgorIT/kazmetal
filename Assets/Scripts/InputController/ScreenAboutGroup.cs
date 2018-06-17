@@ -65,7 +65,7 @@ public class ScreenAboutGroup : MonoBehaviour, InputInteface
     {
         
         newPos = (int)(value / 30);
-        if (selectMainPos!=newPos)
+        if (selectMainPos!=newPos%2)
         {
             if (newPos % 2 == 0)
             {
@@ -106,7 +106,7 @@ public class ScreenAboutGroup : MonoBehaviour, InputInteface
                 coroEng = StartCoroutine(AnimationController.inst.SelectItem(option[1], list));
             }
 
-            selectMainPos = newPos;
+            selectMainPos = newPos%2;
         }
         
     }
@@ -116,8 +116,12 @@ public class ScreenAboutGroup : MonoBehaviour, InputInteface
         mainMenuScreen.gameObject.SetActive(true);
         mainMenuController.gameObject.SetActive(true);
         StartCoroutine(AnimationController.inst.changeScreenBack(aboutGroupScreen, mainMenuScreen));
+        menuMain.logoAnimRus.StopVideo();
+        menuMain.logoAnimEng.StopVideo();
+        menuMain.vidosContainer.SetActive(false);
         yield return StartCoroutine(AnimationController.inst.changeMenuHideOut2(optionRus, optionEng, 0));
         menu.SetActive(false);
+        
         input.rotationX = menuMain.lastRotations;
         selectorMainMenu.SetActive(true);
         yield return StartCoroutine(
@@ -164,8 +168,6 @@ public class ScreenAboutGroup : MonoBehaviour, InputInteface
         aboutGroupScreen.SetActive(false);
         otvet.chooseTime = true;
         otvet.startScroll();
-        otvet.logoAnim.StartPrepareVideo();
-        otvet.logoAnim.PlayVideo();
         gameObject.SetActive(false);
     }
 

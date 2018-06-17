@@ -151,6 +151,7 @@ public class AnimationController : MonoBehaviour
     public IEnumerator changeMenuShowIn2(List<TextMeshProUGUI> menuRus, List<TextMeshProUGUI> menuEng, int selectedItem)
     {
         float time = 0;
+        
         while (time < durationChangeMenuItem)
         {
             for (int i = 0; i < menuRus.Count; i++)

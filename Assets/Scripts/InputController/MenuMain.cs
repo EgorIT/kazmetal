@@ -34,6 +34,8 @@ public class MenuMain : MonoBehaviour, InputInteface
     private List<GameObject> list = new List<GameObject>();
     public float lastRotations;
     public Image arrow;
+    public LogoAnim logoAnimRus, logoAnimEng;
+    public GameObject vidosContainer;
 
 
 
@@ -194,6 +196,11 @@ public class MenuMain : MonoBehaviour, InputInteface
         
         yield return StartCoroutine(AnimationController.inst.changeMenuShowIn2(screenAboutGroup.optionRus, optionEng, 0));
         aboutGroupController.gameObject.SetActive(true);
+        vidosContainer.SetActive(true);
+        logoAnimRus.StartPrepareVideo();
+        logoAnimEng.StartPrepareVideo();
+        logoAnimRus.PlayVideo();
+        logoAnimEng.PlayVideo();
         screenAboutGroup.chooseTime = true;
         mainMemuScreen.gameObject.SetActive(false);
 

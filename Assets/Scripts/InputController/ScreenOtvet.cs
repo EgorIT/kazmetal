@@ -17,7 +17,7 @@ public class ScreenOtvet : MonoBehaviour, InputInteface
     private Vector3 endPos = new Vector3(0, 890, 0);
     private Coroutine coro;
 
-    public LogoAnim logoAnim;
+    
     
 
 
@@ -44,10 +44,11 @@ public class ScreenOtvet : MonoBehaviour, InputInteface
         //menu.SetActive(false);
         input.rotationX = aboutGroup.lastRotations;
         selectorAboutGroup.SetActive(true);
-        logoAnim.StopVideo();
+        
         yield return StartCoroutine(
             AnimationController.inst.changeMenuShowIn2(aboutGroup.optionRus, aboutGroup.optionEng,
-                aboutGroup.selectMainPos));
+                aboutGroup.selectMainPos%2));
+        content.transform.position = startPos;
         otvetScreen.gameObject.SetActive(false);
         aboutGroup.chooseTime = true;
         gameObject.SetActive(false);
