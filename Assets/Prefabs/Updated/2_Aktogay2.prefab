@@ -89,7 +89,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1282751374431726
 GameObject:
   m_ObjectHideFlags: 1
@@ -308,7 +308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1547161064821788
 GameObject:
   m_ObjectHideFlags: 1
@@ -325,7 +325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1571082491758588
 GameObject:
   m_ObjectHideFlags: 1
@@ -359,7 +359,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1639868277882376
 GameObject:
   m_ObjectHideFlags: 1
@@ -408,7 +408,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1700019403549654
 GameObject:
   m_ObjectHideFlags: 1
@@ -474,7 +474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1840894382977758
 GameObject:
   m_ObjectHideFlags: 1
@@ -508,7 +508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1892406787206480
 GameObject:
   m_ObjectHideFlags: 1
@@ -525,7 +525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1892951216929292
 GameObject:
   m_ObjectHideFlags: 1
@@ -564,8 +564,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1706325917582562}
-  m_LocalRotation: {x: 0.000000014901161, y: 0.20653296, z: -0.0000000037252903, w: 0.9784397}
-  m_LocalPosition: {x: -2375, y: -1972.3271, z: 299.48065}
+  m_LocalRotation: {x: 0, y: 0.20791169, z: 0, w: 0.9781476}
+  m_LocalPosition: {x: -2375.9, y: -1972.3271, z: 299.48065}
   m_LocalScale: {x: 2.5397987, y: 2.5397987, z: 2.5397985}
   m_Children:
   - {fileID: 4966611422008470}
@@ -578,7 +578,7 @@ Transform:
   - {fileID: 4496115050856094}
   m_Father: {fileID: 224779983696808302}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: -21.157001, y: 25.682001, z: -9.846001}
+  m_LocalEulerAnglesHint: {x: 0, y: 24, z: 0}
 --- !u!4 &4224265274087576
 Transform:
   m_ObjectHideFlags: 1
