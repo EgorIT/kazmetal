@@ -83,7 +83,7 @@ public class ScreenFuture : MonoBehaviour, InputInteface
        //    yield return new WaitForSeconds(slideTime);
             nextSlide = currentSlide - 1 == -1 ? images.Count-1 : currentSlide - 1;
             yield return StartCoroutine(
-                AnimationController.inst.changeScreenBack(images[currentSlide], images[nextSlide]));
+                AnimationController.inst.changeScreen(images[currentSlide], images[nextSlide]));
             currentSlide = nextSlide;
 	    chooseTime = true;
         //}

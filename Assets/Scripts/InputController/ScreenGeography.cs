@@ -34,6 +34,7 @@ public class ScreenGeography : MonoBehaviour, InputInteface
     private List<GameObject> list = new List<GameObject>();
     public List<GameObject> videoList;
     public List<LogoAnim> videos;
+    private float currentRotate;
     
 
     // Use this for initialization
@@ -87,6 +88,8 @@ public class ScreenGeography : MonoBehaviour, InputInteface
         newPos = (int) (value / 30);
         if (selectMainPos != newPos)
         {
+            chooseTime = false;
+            currentRotate = input.rotationX;
             StartCoroutine(changeGeog());
         }
     }
@@ -161,6 +164,7 @@ public class ScreenGeography : MonoBehaviour, InputInteface
         StartCoroutine(AnimationController.inst.scaleVideoPlus(videoList[newPos]));
         yield return StartCoroutine(AnimationController.inst.scaleVideoMinus(videoList[selectMainPos]));
         videos[selectMainPos].StopVideo();
+        input.rotationX = currentRotate;
         chooseTime = true;
         selectMainPos = newPos;
     }

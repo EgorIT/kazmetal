@@ -247,7 +247,9 @@ public class AnimationController : MonoBehaviour
             time += Time.deltaTime;
             if (time < durationChangeScreen)
             {
-                currentPos.x = -1080 * time / durationChangeScreen;
+                float x = Mathf.Sin(Mathf.PI * time / (2 * durationChangeScreen)) *
+                          Mathf.Sin(Mathf.PI * time / (2 * durationChangeScreen));
+                currentPos.x = -1080 * Mathf.Sin(Mathf.PI * x / 2) * Mathf.Sin(Mathf.PI * x / 2);
                 nextPos.x = 1080 + currentPos.x;
                 currentScreen.transform.localPosition = currentPos;
                 nextScreen.transform.localPosition = nextPos;
@@ -268,6 +270,7 @@ public class AnimationController : MonoBehaviour
     {
         Vector3 currentPos = Vector3.zero;
         Vector3 nextPos = new Vector3(-1080, 0, 0);
+        nextScreen.transform.position = nextPos;
         nextScreen.SetActive(true);
         float time = 0;
         while (time < durationChangeScreen)
