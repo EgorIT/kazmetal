@@ -192,7 +192,7 @@ public class MenuMain : MonoBehaviour, InputInteface
         lastRotations = input.rotationX;
         input.rotationX = -60f;
         
-        yield return StartCoroutine(AnimationController.inst.changeMenuShowIn2(screenAboutGroup.optionRus, optionEng, 1));
+        yield return StartCoroutine(AnimationController.inst.changeMenuShowIn2(screenAboutGroup.optionRus, optionEng, 0));
         aboutGroupController.gameObject.SetActive(true);
         screenAboutGroup.chooseTime = true;
         mainMemuScreen.gameObject.SetActive(false);
@@ -286,17 +286,17 @@ public class MenuMain : MonoBehaviour, InputInteface
                     chooseTime = false;
                     StartCoroutine(selectGeography());
                     break;
-                case 3:
+                case 1:
                     chooseTime = false;
                     StartCoroutine(selectAboutGroup());
                     
                     break;
-                case 1:
+                case 2:
                     chooseTime = false;
                     StartCoroutine(selectPredpr());
                     
                     break;
-                case 2:
+                case 3:
                     chooseTime = false;
                     StartCoroutine(selectFuture());
                     break;

@@ -20,6 +20,9 @@ public class ScreenAktogay2 : MonoBehaviour, InputInteface
     public float durationRotate;
 
     public MenuMain menuMain;
+
+    private float currentRotation;
+
     // Use this for initialization
     void Start () {
 		//menuItems.Add(rus);
@@ -38,9 +41,11 @@ public class ScreenAktogay2 : MonoBehaviour, InputInteface
     public void GetFocus(float value)
     {
         newPos = (int)(value / 24);
+        newPos = newPos % 5;
         if (selectMainPos != newPos)
         {
             chooseTime = false;
+            currentRotation = input.rotationX;
             if ((newPos == selectMainPos + 1))
             {
 
@@ -83,6 +88,7 @@ public class ScreenAktogay2 : MonoBehaviour, InputInteface
             yield return null;
         }
         gameObject1.transform.rotation = Quaternion.Euler(new Vector3(0, current + 72 * koef, 0));
+        input.rotationX = currentRotation;
         chooseTime = true;
     }
 
