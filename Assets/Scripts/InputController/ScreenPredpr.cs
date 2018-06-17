@@ -111,11 +111,19 @@ public class ScreenPredpr : MonoBehaviour, InputInteface {
 
             unselectListEng.RemoveAt(newPos);
             unselectListRus.RemoveAt(newPos);
+
+            
+            
             chooseTime = false;
+            list.Clear();
+            list.AddRange(option);
+            list.RemoveAt(newPos);
+            coroEng = StartCoroutine(
+                AnimationController.inst.SelectItem(option[newPos], list));
             //coroRus = StartCoroutine(
             //    AnimationController.inst.SelectItem(optionRus[newPos].gameObject, unselectListRus));
-            coroEng = StartCoroutine(
-                AnimationController.inst.SelectItem(option[newPos].gameObject, unselectListEng));
+            //coroEng = StartCoroutine(
+            //    AnimationController.inst.SelectItem(option[newPos], unselectListEng));
             dinamicMapItems[selectMainPos].Off();
             dinamicMapItems[newPos].gameObject.SetActive(true);
             dinamicMapItems[newPos].On();
