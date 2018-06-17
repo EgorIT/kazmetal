@@ -39,8 +39,24 @@ public class WindowMod : MonoBehaviour {
         }
     }
 
+    public void Button1()
+    {
+       SetSize(1080,3840); 
+    }
+    
+    public void Button2()
+    {
+        SetSize(3840, 1080); 
+    }
+
+    public void Button3()
+    {
+        SetSize(400, 400); 
+    }
+
+    
     private IEnumerator ReadVideoInfo () {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         if(!File.Exists(pathInfo)) {
             Debug.LogError("Path error " + pathInfo);
             SetSize(1080, 3840);

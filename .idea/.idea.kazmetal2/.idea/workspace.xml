@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2cd8e692-5db0-4ca1-9298-1483048d5132" name="Default" comment="" />
+    <list default="true" id="2cd8e692-5db0-4ca1-9298-1483048d5132" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Scripts/WindowMod.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/WindowMod.cs" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,19 +86,22 @@
       <file leaf-file-name="WindowMod.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/WindowMod.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="71" column="34" lean-forward="true" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="34" />
+            <state relative-caret-position="330">
+              <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
               <folding>
-                <marker date="1529229281788" expanded="false" signature="6:131" ph="..." />
-                <marker date="1529229281788" expanded="true" signature="172:3476" ph="{...}" />
-                <marker date="1529229281788" expanded="true" signature="629:797" ph="/* not used rigth now ... */" />
-                <marker date="1529229281788" expanded="true" signature="970:1195" ph="{...}" />
-                <marker date="1529229281788" expanded="true" signature="1039:1089" ph="{...}" />
-                <marker date="1529229281788" expanded="true" signature="1238:1884" ph="{...}" />
-                <marker date="1529229281788" expanded="true" signature="1320:1443" ph="{...}" />
-                <marker date="1529229281788" expanded="true" signature="1683:1846" ph="{...}" />
-                <marker date="1529229281788" expanded="true" signature="1890:2882" ph="/* public static void StartFromController () { ... */" />
-                <marker date="1529229281788" expanded="true" signature="2922:3472" ph="{...}" />
+                <marker date="1529229964026" expanded="false" signature="6:131" ph="..." />
+                <marker date="1529229964026" expanded="true" signature="172:3688" ph="{...}" />
+                <marker date="1529229964026" expanded="true" signature="629:797" ph="/* not used rigth now ... */" />
+                <marker date="1529229964026" expanded="true" signature="970:1195" ph="{...}" />
+                <marker date="1529229964026" expanded="true" signature="1039:1089" ph="{...}" />
+                <marker date="1529229964026" expanded="true" signature="1222:1262" ph="{...}" />
+                <marker date="1529229964026" expanded="true" signature="1293:1335" ph="{...}" />
+                <marker date="1529229964026" expanded="true" signature="1362:1402" ph="{...}" />
+                <marker date="1529229964026" expanded="true" signature="1450:2096" ph="{...}" />
+                <marker date="1529229964026" expanded="true" signature="1532:1655" ph="{...}" />
+                <marker date="1529229964026" expanded="true" signature="1895:2058" ph="{...}" />
+                <marker date="1529229964026" expanded="true" signature="2102:3094" ph="/* public static void StartFromController () { ... */" />
+                <marker date="1529229964026" expanded="true" signature="3134:3684" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -214,12 +219,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1529111546986</updated>
-      <workItem from="1529111580353" duration="708000" />
+      <workItem from="1529111580353" duration="1325000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="708000" />
+    <option name="totallyTimeSpent" value="1325000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -325,19 +330,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/WindowMod.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="71" column="34" lean-forward="true" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="34" />
+        <state relative-caret-position="330">
+          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
           <folding>
-            <marker date="1529229281788" expanded="false" signature="6:131" ph="..." />
-            <marker date="1529229281788" expanded="true" signature="172:3476" ph="{...}" />
-            <marker date="1529229281788" expanded="true" signature="629:797" ph="/* not used rigth now ... */" />
-            <marker date="1529229281788" expanded="true" signature="970:1195" ph="{...}" />
-            <marker date="1529229281788" expanded="true" signature="1039:1089" ph="{...}" />
-            <marker date="1529229281788" expanded="true" signature="1238:1884" ph="{...}" />
-            <marker date="1529229281788" expanded="true" signature="1320:1443" ph="{...}" />
-            <marker date="1529229281788" expanded="true" signature="1683:1846" ph="{...}" />
-            <marker date="1529229281788" expanded="true" signature="1890:2882" ph="/* public static void StartFromController () { ... */" />
-            <marker date="1529229281788" expanded="true" signature="2922:3472" ph="{...}" />
+            <marker date="1529229964026" expanded="false" signature="6:131" ph="..." />
+            <marker date="1529229964026" expanded="true" signature="172:3688" ph="{...}" />
+            <marker date="1529229964026" expanded="true" signature="629:797" ph="/* not used rigth now ... */" />
+            <marker date="1529229964026" expanded="true" signature="970:1195" ph="{...}" />
+            <marker date="1529229964026" expanded="true" signature="1039:1089" ph="{...}" />
+            <marker date="1529229964026" expanded="true" signature="1222:1262" ph="{...}" />
+            <marker date="1529229964026" expanded="true" signature="1293:1335" ph="{...}" />
+            <marker date="1529229964026" expanded="true" signature="1362:1402" ph="{...}" />
+            <marker date="1529229964026" expanded="true" signature="1450:2096" ph="{...}" />
+            <marker date="1529229964026" expanded="true" signature="1532:1655" ph="{...}" />
+            <marker date="1529229964026" expanded="true" signature="1895:2058" ph="{...}" />
+            <marker date="1529229964026" expanded="true" signature="2102:3094" ph="/* public static void StartFromController () { ... */" />
+            <marker date="1529229964026" expanded="true" signature="3134:3684" ph="{...}" />
           </folding>
         </state>
       </provider>
