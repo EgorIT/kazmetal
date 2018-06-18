@@ -38,28 +38,28 @@ public class ScreenFuture : MonoBehaviour, InputInteface
 		if (selectMainPos != newPos)
 		{
             
-			chooseTime = false;
+			
 			if ((newPos == selectMainPos+1))
 			{
-                
-				StartCoroutine(SlideImage());
+			    chooseTime = false;
+                StartCoroutine(SlideImage());
 			}
 		    if ((newPos==0&&selectMainPos==images.Count-1))
 			{
-                
-				StartCoroutine(SlideImage());
+			    chooseTime = false;
+                StartCoroutine(SlideImage());
 			}
 			if ((newPos == selectMainPos-1))
 			{
-			    
+			    chooseTime = false;
                 StartCoroutine(SlideImageBack());
 			}
 		    if ((newPos==images.Count-1&&selectMainPos==0))
 			{
-			    
+			    chooseTime = false;
                 StartCoroutine(SlideImageBack());
 			}
-			selectMainPos = newPos;
+			
        
 		}
 	}
@@ -74,6 +74,7 @@ public class ScreenFuture : MonoBehaviour, InputInteface
                 AnimationController.inst.changeScreenBack(images[currentSlide], images[nextSlide]));
             currentSlide = nextSlide;
 	    chooseTime = true;
+        selectMainPos = newPos;
         //}
     }
 	public IEnumerator SlideImageBack()
@@ -86,6 +87,7 @@ public class ScreenFuture : MonoBehaviour, InputInteface
                 AnimationController.inst.changeScreen(images[currentSlide], images[nextSlide]));
             currentSlide = nextSlide;
 	    chooseTime = true;
+        selectMainPos = newPos;
         //}
     }
 
