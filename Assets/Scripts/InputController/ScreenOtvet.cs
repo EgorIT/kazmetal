@@ -17,8 +17,12 @@ public class ScreenOtvet : MonoBehaviour, InputInteface
     private Vector3 endPos = new Vector3(0, 890, 0);
     private Coroutine coro;
 
+    public LogoAnim logoAnimRus, logoAnimEng;
+    public GameObject vidosContainer;
     
-    
+
+
+
 
 
     // Use this for initialization
@@ -44,6 +48,15 @@ public class ScreenOtvet : MonoBehaviour, InputInteface
         //menu.SetActive(false);
         input.rotationX = aboutGroup.lastRotations;
         selectorAboutGroup.SetActive(true);
+        if (logoAnimRus.gameObject.activeInHierarchy)
+        {
+            logoAnimRus.StopVideo();
+        }
+
+        if (logoAnimEng.gameObject.activeInHierarchy)
+        {
+            logoAnimEng.StopVideo();
+        }
         
         yield return StartCoroutine(
             AnimationController.inst.changeMenuShowIn2(aboutGroup.optionRus, aboutGroup.optionEng,

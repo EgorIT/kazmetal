@@ -267,6 +267,8 @@ public class AnimationController : MonoBehaviour
         currentScreen.SetActive(false);
     }
 
+
+
     public IEnumerator changeScreenBack(GameObject currentScreen, GameObject nextScreen)
     {
         Vector3 currentPos = Vector3.zero;

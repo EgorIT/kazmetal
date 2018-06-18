@@ -27,6 +27,9 @@ public class ScreenAboutGroup : MonoBehaviour, InputInteface
     public ScreenStrategy strategy;
     public ScreenOtvet otvet;
     public float lastRotations;
+    public LogoAnim logoAnimRus, logoAnimEng;
+    public GameObject vidosContainer;
+    public GameObject langIndicator;
 
 
 
@@ -116,9 +119,7 @@ public class ScreenAboutGroup : MonoBehaviour, InputInteface
         mainMenuScreen.gameObject.SetActive(true);
         mainMenuController.gameObject.SetActive(true);
         StartCoroutine(AnimationController.inst.changeScreenBack(aboutGroupScreen, mainMenuScreen));
-        menuMain.logoAnimRus.StopVideo();
-        menuMain.logoAnimEng.StopVideo();
-        menuMain.vidosContainer.SetActive(false);
+        
         yield return StartCoroutine(AnimationController.inst.changeMenuHideOut2(optionRus, optionEng, 0));
         menu.SetActive(false);
         
@@ -158,12 +159,33 @@ public class ScreenAboutGroup : MonoBehaviour, InputInteface
     private IEnumerator startOtvet()
     {
         chooseTime = false;
+        
+        
+        
+
         StartCoroutine(AnimationController.inst.changeScreenBack(aboutGroupScreen, otvetScreen));
         yield return StartCoroutine(AnimationController.inst.changeMenuHideOut2(optionRus, optionEng, selectMainPos));
         menu.gameObject.SetActive(false);
         lastRotations = input.rotationX;
         input.rotationX = -60f;
         otvetController.gameObject.SetActive(true);
+        if (langIndicator.activeInHierarchy)
+        {
+            logoAnimEng.StartPrepareVideo();
+        }
+        else
+        {
+            logoAnimRus.StartPrepareVideo();
+        }
+
+        if (langIndicator.activeInHierarchy)
+        {
+            logoAnimEng.PlayVideo();
+        }
+        else
+        {
+            logoAnimRus.PlayVideo();
+        }
         aboutGroupScreen.gameObject.SetActive(false);
         aboutGroupScreen.SetActive(false);
         otvet.chooseTime = true;
