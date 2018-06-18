@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cd8e692-5db0-4ca1-9298-1483048d5132" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.idea.kazmetal2/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/.idea.kazmetal2/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Prefabs/Main Canvas.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Main Canvas.prefab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Prefabs/Updated/1_MainPage.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Updated/1_MainPage.prefab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Prefabs/Updated/2_Aktogay2.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Updated/2_Aktogay2.prefab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Prefabs/Updated/3_1_AboutGroup_Strategy.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Updated/3_1_AboutGroup_Strategy.prefab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Prefabs/Updated/3_2_AboutGroup_Otvetstvennost.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Updated/3_2_AboutGroup_Otvetstvennost.prefab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Prefabs/Updated/3_About_Group.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Updated/3_About_Group.prefab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Prefabs/Updated/5_Future.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Updated/5_Future.prefab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Prefabs/Updated/5_Geographiy_21.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Updated/5_Geographiy_21.prefab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Prefabs/Updated/5_Predpryatia.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Updated/5_Predpryatia.prefab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Prefabs/Updated/Main_Button.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Updated/Main_Button.prefab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Scenes/Art_Scene.unity" afterPath="$PROJECT_DIR$/Assets/Scenes/Art_Scene.unity" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Scripts/InputController/ScreenStrategy.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/InputController/ScreenStrategy.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Scripts/InputController/ScreenAktogay2.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/InputController/ScreenAktogay2.cs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,16 +14,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PowerMateReal.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/PowerMateReal.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PowerMateButton.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/PowerMateButton.cs">
           <provider selected="true" editor-type-id="text-editor">
@@ -108,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScreenStrategy.cs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ScreenStrategy.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/InputController/ScreenStrategy.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="15" column="49" lean-forward="false" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+            <state relative-caret-position="120">
+              <caret line="22" column="36" lean-forward="false" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
               <folding>
                 <marker date="1529316688872" expanded="false" signature="6:78" ph="..." />
                 <marker date="1529316688872" expanded="true" signature="139:2028" ph="{...}" />
@@ -124,6 +102,36 @@
                 <marker date="1529316688872" expanded="true" signature="1685:1849" ph="{...}" />
                 <marker date="1529316688872" expanded="true" signature="1745:1798" ph="{...}" />
                 <marker date="1529316688872" expanded="true" signature="1908:2026" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScreenAktogay2.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/InputController/ScreenAktogay2.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="109" column="26" lean-forward="false" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
+              <folding>
+                <marker date="1529317078911" expanded="false" signature="6:100" ph="..." />
+                <marker date="1529317078911" expanded="true" signature="160:3856" ph="{...}" />
+                <marker date="1529317078911" expanded="true" signature="326:403" ph="/* public List&lt;Text&gt; menuItems = new List&lt;Text&gt;(); ... */" />
+                <marker date="1529317078911" expanded="true" signature="709:798" ph="{...}" />
+                <marker date="1529317078911" expanded="true" signature="713:758" ph="/* menuItems.Add(rus); ... */" />
+                <marker date="1529317078911" expanded="true" signature="853:939" ph="{...}" />
+                <marker date="1529317078911" expanded="true" signature="875:933" ph="{...}" />
+                <marker date="1529317078911" expanded="true" signature="978:1854" ph="{...}" />
+                <marker date="1529317078911" expanded="true" signature="1086:1848" ph="{...}" />
+                <marker date="1529317078911" expanded="true" signature="1222:1322" ph="{...}" />
+                <marker date="1529317078911" expanded="true" signature="1375:1479" ph="{...}" />
+                <marker date="1529317078911" expanded="true" signature="1526:1631" ph="{...}" />
+                <marker date="1529317078911" expanded="true" signature="1684:1789" ph="{...}" />
+                <marker date="1529317078911" expanded="true" signature="1935:2677" ph="{...}" />
+                <marker date="1529317078911" expanded="true" signature="2027:2502" ph="{...}" />
+                <marker date="1529317078911" expanded="true" signature="2715:3677" ph="{...}" />
+                <marker date="1529317078911" expanded="true" signature="3702:3723" ph="{...}" />
+                <marker date="1529317078911" expanded="true" signature="3747:3854" ph="{...}" />
+                <marker date="1529317078911" expanded="true" signature="3779:3848" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -345,6 +353,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/InputController/AnimationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/InputController/ScreenOtvet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PowerMateButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/InputController/ScreenAktogay2.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -356,6 +365,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/InputController/ScreenGeography.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InputController/ScreenOtvet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InputController/ScreenStrategy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/InputController/ScreenAktogay2.cs" />
       </list>
     </option>
   </component>
@@ -455,12 +465,12 @@
       <updated>1529111546986</updated>
       <workItem from="1529111580353" duration="1325000" />
       <workItem from="1529285126121" duration="1683000" />
-      <workItem from="1529295636420" duration="2578000" />
+      <workItem from="1529295636420" duration="2980000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5586000" />
+    <option name="totallyTimeSpent" value="5988000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1015,8 +1025,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/InputController/ScreenStrategy.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="15" column="49" lean-forward="false" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+        <state relative-caret-position="120">
+          <caret line="22" column="36" lean-forward="false" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
           <folding>
             <marker date="1529316688872" expanded="false" signature="6:78" ph="..." />
             <marker date="1529316688872" expanded="true" signature="139:2028" ph="{...}" />
@@ -1028,6 +1038,34 @@
             <marker date="1529316688872" expanded="true" signature="1685:1849" ph="{...}" />
             <marker date="1529316688872" expanded="true" signature="1745:1798" ph="{...}" />
             <marker date="1529316688872" expanded="true" signature="1908:2026" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/InputController/ScreenAktogay2.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="109" column="26" lean-forward="false" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
+          <folding>
+            <marker date="1529317078911" expanded="false" signature="6:100" ph="..." />
+            <marker date="1529317078911" expanded="true" signature="160:3856" ph="{...}" />
+            <marker date="1529317078911" expanded="true" signature="326:403" ph="/* public List&lt;Text&gt; menuItems = new List&lt;Text&gt;(); ... */" />
+            <marker date="1529317078911" expanded="true" signature="709:798" ph="{...}" />
+            <marker date="1529317078911" expanded="true" signature="713:758" ph="/* menuItems.Add(rus); ... */" />
+            <marker date="1529317078911" expanded="true" signature="853:939" ph="{...}" />
+            <marker date="1529317078911" expanded="true" signature="875:933" ph="{...}" />
+            <marker date="1529317078911" expanded="true" signature="978:1854" ph="{...}" />
+            <marker date="1529317078911" expanded="true" signature="1086:1848" ph="{...}" />
+            <marker date="1529317078911" expanded="true" signature="1222:1322" ph="{...}" />
+            <marker date="1529317078911" expanded="true" signature="1375:1479" ph="{...}" />
+            <marker date="1529317078911" expanded="true" signature="1526:1631" ph="{...}" />
+            <marker date="1529317078911" expanded="true" signature="1684:1789" ph="{...}" />
+            <marker date="1529317078911" expanded="true" signature="1935:2677" ph="{...}" />
+            <marker date="1529317078911" expanded="true" signature="2027:2502" ph="{...}" />
+            <marker date="1529317078911" expanded="true" signature="2715:3677" ph="{...}" />
+            <marker date="1529317078911" expanded="true" signature="3702:3723" ph="{...}" />
+            <marker date="1529317078911" expanded="true" signature="3747:3854" ph="{...}" />
+            <marker date="1529317078911" expanded="true" signature="3779:3848" ph="{...}" />
           </folding>
         </state>
       </provider>
