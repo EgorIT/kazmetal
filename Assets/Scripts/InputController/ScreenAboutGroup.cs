@@ -127,6 +127,14 @@ public class ScreenAboutGroup : MonoBehaviour, InputInteface
         selectorMainMenu.SetActive(true);
         yield return StartCoroutine(
             AnimationController.inst.changeMenuShowIn22(menuMain.optionRus, menuMain.optionEng, menuMain.selectMainPos));
+        optionRus[0].fontMaterial = MaterialsController.inst.glow;
+        optionEng[0].fontMaterial = MaterialsController.inst.glow;
+        optionRus[1].fontMaterial = MaterialsController.inst.simple;
+        optionEng[1].fontMaterial = MaterialsController.inst.simple;
+        optionRus[0].color = input.selectedColor;
+        optionEng[0].color = input.selectedColor;
+        optionRus[1].color = input.unselectedColor;
+        optionEng[1].color = input.unselectedColor;
         aboutGroupScreen.gameObject.SetActive(false);
         menuMain.chooseTime = true;
         gameObject.SetActive(false);

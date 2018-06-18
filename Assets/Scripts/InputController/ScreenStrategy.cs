@@ -38,7 +38,7 @@ public class ScreenStrategy : MonoBehaviour, InputInteface {
         input.rotationX = aboutGroup.lastRotations;
         selectorAboutGroup.SetActive(true);
         yield return StartCoroutine(
-            AnimationController.inst.changeMenuShowIn2(aboutGroup.optionRus, aboutGroup.optionEng, aboutGroup.selectMainPos));
+            AnimationController.inst.changeMenuShowIn2(aboutGroup.optionRus, aboutGroup.optionEng, aboutGroup.selectMainPos%2));
         content.transform.position = startPos;
         starategyScreen.gameObject.SetActive(false);
         aboutGroup.chooseTime = true;

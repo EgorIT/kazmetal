@@ -209,7 +209,7 @@ public class MenuMain : MonoBehaviour, InputInteface
         lastRotations = input.rotationX;
         input.rotationX = -60f;
         
-        yield return StartCoroutine(AnimationController.inst.changeMenuShowIn2(screenAboutGroup.optionRus, optionEng, 0));
+        yield return StartCoroutine(AnimationController.inst.changeMenuShowIn2(screenAboutGroup.optionRus, screenAboutGroup.optionEng, 0));
         aboutGroupController.gameObject.SetActive(true);
         
 
