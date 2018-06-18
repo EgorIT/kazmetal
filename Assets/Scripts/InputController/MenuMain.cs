@@ -277,21 +277,26 @@ public class MenuMain : MonoBehaviour, InputInteface
     private IEnumerator selectPredpr()
     {
         chooseTime = false;
+        
+        predprController.gameObject.SetActive(true);
+        screenPredpr.startSlider();
         StartCoroutine(AnimationController.inst.changeScreenBack(mainMemuScreen, predpr));
         yield return StartCoroutine(AnimationController.inst.changeMenuHideOut2(optionRus, optionEng, selectMainPos));
         selectorMain.gameObject.SetActive(false);
         selectorPredpr.SetActive(true);
+        
         lastRotations = input.rotationX;
         input.rotationX = -60f;
-        predprController.gameObject.SetActive(true);
+        selectMainPos = 0;
+       
         yield return StartCoroutine(AnimationController.inst.changeMenuShowIn2(screenPredpr.optionRus, screenPredpr.optionEng, 0));
         screenPredpr.dinamicMap.SetActive(true);
         for (int i = 0; i < screenPredpr.dinamicMapItems.Count; i++)
         {
             screenPredpr.dinamicMapItems[i].gameObject.SetActive(true);
-            screenPredpr.dinamicMapItems[i].Off();
+            //screenPredpr.dinamicMapItems[i].Off();
         }
-        screenPredpr.dinamicMapItems[0].On();
+        //screenPredpr.dinamicMapItems[0].OnFast();
         screenPredpr.chooseTime = true;
         mainMemuScreen.gameObject.SetActive(false);
 

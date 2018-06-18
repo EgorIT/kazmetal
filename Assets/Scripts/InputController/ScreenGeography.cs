@@ -117,12 +117,14 @@ public class ScreenGeography : MonoBehaviour, InputInteface
             optionEng[i].fontMaterial = MaterialsController.inst.simple;
             optionRus[i].color = input.unselectedColor;
             optionEng[i].color = input.unselectedColor;
+            screens[i].SetActive(false);
         }
 
         optionRus[newPos].fontMaterial = MaterialsController.inst.glow;
         optionEng[newPos].fontMaterial = MaterialsController.inst.glow;
         optionRus[newPos].color = input.selectedColor;
         optionEng[newPos].color = input.selectedColor;
+        screens[newPos].SetActive(true);
 
         if (coroRus != null)
         {
