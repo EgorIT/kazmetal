@@ -125,6 +125,7 @@ public class ScreenGeography : MonoBehaviour, InputInteface
         optionRus[newPos].color = input.selectedColor;
         optionEng[newPos].color = input.selectedColor;
         screens[newPos].SetActive(true);
+        screens[newPos].transform.localPosition = Vector3.zero;
 
         if (coroRus != null)
         {
