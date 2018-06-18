@@ -13,7 +13,7 @@ public class ScreenStrategy : MonoBehaviour, InputInteface {
     public GameObject selectorAboutGroup;
     public GameObject content;
     private Vector3 startPos;
-    private Vector3 endPos = new Vector3(0, -1000, 0);
+    private Vector3 endPos = new Vector3(0, -1300, 0);
     private Coroutine coro;
 
     // Use this for initialization

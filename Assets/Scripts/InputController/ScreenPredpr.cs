@@ -98,7 +98,7 @@ public class ScreenPredpr : MonoBehaviour, InputInteface
         currentSlide = 0;
         while (true)
         {
-            yield return new WaitForSeconds(5.0f);
+            yield return new WaitForSeconds(2.0f);
             yield return StartCoroutine(SlideImageBack(images));
         }
     }
