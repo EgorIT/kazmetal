@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2cd8e692-5db0-4ca1-9298-1483048d5132" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Scripts/InputController/ScreenAktogay2.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/InputController/ScreenAktogay2.cs" />
-    </list>
+    <list default="true" id="2cd8e692-5db0-4ca1-9298-1483048d5132" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -465,12 +463,12 @@
       <updated>1529111546986</updated>
       <workItem from="1529111580353" duration="1325000" />
       <workItem from="1529285126121" duration="1683000" />
-      <workItem from="1529295636420" duration="2980000" />
+      <workItem from="1529295636420" duration="3017000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5988000" />
+    <option name="totallyTimeSpent" value="6025000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
