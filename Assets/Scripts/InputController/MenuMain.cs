@@ -34,6 +34,7 @@ public class MenuMain : MonoBehaviour, InputInteface
     private List<GameObject> list = new List<GameObject>();
     public float lastRotations;
     public Image arrow;
+    public FactoryColors aktogay2;
     
 
 
@@ -105,6 +106,15 @@ public class MenuMain : MonoBehaviour, InputInteface
         newPos = (int) (value / 24);
         if (selectMainPos != newPos)
         {
+            if (newPos == 4)
+            {
+                aktogay2.On();
+            }
+
+            if (selectMainPos == 4)
+            {
+                aktogay2.Off();
+            }
             for (int i = 0; i < optionRus.Count; i++)
             {
                 
@@ -154,6 +164,12 @@ public class MenuMain : MonoBehaviour, InputInteface
     private IEnumerator changeMenuBack()
     {
         yield return StartCoroutine(AnimationController.inst.changeMenuHideOut2(optionRus, optionEng, selectMainPos));
+        if (selectMainPos == 4)
+        {
+            aktogay2.Off();
+        }
+
+        selectMainPos = -1;
         selectorLang.gameObject.SetActive(true);
         selectorMain.gameObject.SetActive(false);
         input.rotationX = menuLang.lastRotations;
