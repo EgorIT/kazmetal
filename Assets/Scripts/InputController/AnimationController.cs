@@ -350,18 +350,35 @@ public class AnimationController : MonoBehaviour
     {
         float time = 0f;
         float delta = end.y - start.y;
+        bool waiter = true;
+        
         while (true)
         {
-            if (time < durationScrollOtvet)
+            //if (time < durationScrollOtvet)
+            if (time < 22)//kostyl
             {
+                waiter = true;
                 time += Time.deltaTime;
                 content.transform.localPosition = new Vector3(0, start.y + delta * time / durationScrollOtvet, 0);
             }
             else
             {
-                time = 0f;
+                if (waiter)
+                {
+                    yield return new WaitForSeconds(5f);
+                    waiter = false;
+                }
+                else
+                {
+                    time += Time.deltaTime;
+                    content.transform.localPosition = new Vector3(0, start.y + delta * time / durationScrollOtvet, 0);
+                }
+               
             }
 
+            if (time>=durationScrollOtvet){
+                time = 0f;}
+            
             yield return null;
         }
     }
@@ -370,7 +387,7 @@ public class AnimationController : MonoBehaviour
     {
         float time = 0f;
         float delta = end.y - start.y;
-        while (true)
+        while (time < durationScrollStrategy)
         {
             if (time < durationScrollStrategy)
             {
