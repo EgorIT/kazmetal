@@ -48,17 +48,17 @@ public class ScreenStrategy : MonoBehaviour, InputInteface {
 
     public void Click()
     {
-        
-    }
-
-    public void Back()
-    {
         chooseTime = false;
         if (coro != null)
         {
             StopCoroutine(coro);
         }
         StartCoroutine(pressBack());
+    }
+
+    public void Back()
+    {
+        
        
     }
 

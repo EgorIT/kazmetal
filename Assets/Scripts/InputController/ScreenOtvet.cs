@@ -69,16 +69,17 @@ public class ScreenOtvet : MonoBehaviour, InputInteface
 
     public void Click()
     {
-    }
-
-    public void Back()
-    {
         chooseTime = false;
         if (coro != null)
         {
             StopCoroutine(coro);
         }
         StartCoroutine(pressBack());
+    }
+
+    public void Back()
+    {
+        
     }
     [ContextMenu("scroll")]
     public void startScroll()

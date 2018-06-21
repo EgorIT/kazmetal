@@ -80,7 +80,11 @@ public class ScreenGeography : MonoBehaviour, InputInteface
     {
         if (chooseTime)
         {
-           
+            if (coro == null)
+            {
+                chooseTime = false;
+                coro = StartCoroutine(pressBack());
+            }
         }
     }
 

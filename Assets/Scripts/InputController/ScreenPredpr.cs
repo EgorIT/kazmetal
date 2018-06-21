@@ -72,19 +72,17 @@ public class ScreenPredpr : MonoBehaviour, InputInteface
     {
         if (chooseTime)
         {
-        }
-    }
-
-    public void Back()
-    {
-        if (chooseTime)
-        {
             if (coro == null)
             {
                 chooseTime = false;
                 coro = StartCoroutine(pressBack());
             }
         }
+    }
+
+    public void Back()
+    {
+       
     }
 
     public void startSlider()

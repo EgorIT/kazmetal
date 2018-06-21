@@ -116,15 +116,15 @@ public class ScreenAktogay2 : MonoBehaviour, InputInteface
 
     public void Click()
     {
-        
-    }
-
-    public void Back()
-    {
         if (coro == null)
         {
             coro = StartCoroutine(pressBack());
 
         }
+    }
+
+    public void Back()
+    {
+        
     }
 }

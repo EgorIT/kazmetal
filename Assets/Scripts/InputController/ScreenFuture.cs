@@ -93,16 +93,16 @@ public class ScreenFuture : MonoBehaviour, InputInteface
 
 	public void Click()
 	{
-		
-	}
+	    if (chooseTime)
+	    {
+	        chooseTime = false;
+	        StartCoroutine(pressBack());
+	    }
+    }
 
 	public void Back()
 	{
-		if (chooseTime)
-		{
-		    chooseTime = false;
-			StartCoroutine(pressBack());
-		}
+		
 	}
 	
 	private IEnumerator pressBack()
