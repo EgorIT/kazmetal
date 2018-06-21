@@ -3106,7 +3106,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -4310,6 +4310,26 @@ Prefab:
     - target: {fileID: 1631746628602188, guid: 45a9729057fe80240ad2bbf121b122b6, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114249985932119812, guid: 45a9729057fe80240ad2bbf121b122b6,
+        type: 2}
+      propertyPath: m_Text
+      value: TONNES
+      objectReference: {fileID: 0}
+    - target: {fileID: 114249985932119812, guid: 45a9729057fe80240ad2bbf121b122b6,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 224946726977626124, guid: 45a9729057fe80240ad2bbf121b122b6,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 769.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224946726977626124, guid: 45a9729057fe80240ad2bbf121b122b6,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 301
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45a9729057fe80240ad2bbf121b122b6, type: 2}
